@@ -51,6 +51,7 @@ public class CloudController : MonoBehaviour
             newFruit.transform.position = constrainedFruit.position;
             newFruit.GetComponent<Fruit>().manager = fruitManager;
             equippedFruit = newFruit;
+            equippedFruit.GetComponent<Fruit>().isTouched = true;
             fruitManager.AssignNextFruit();
         }
     }

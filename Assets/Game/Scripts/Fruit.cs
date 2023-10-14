@@ -8,7 +8,7 @@ public class Fruit : MonoBehaviour
     public int level = 0;
     public FruitManager manager;
     public bool isPopping = false;
-    public bool isTouched = false;
+    public bool isTouched = true;
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (isPopping) return;
