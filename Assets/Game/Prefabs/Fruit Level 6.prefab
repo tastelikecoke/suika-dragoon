@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1365288460236969934}
   - component: {fileID: 3533563518764060911}
   - component: {fileID: 8507777010395805750}
-  - component: {fileID: -3340930491259261783}
+  - component: {fileID: -6629672071919831593}
   m_Layer: 0
-  m_Name: Fruit Level 5
+  m_Name: Fruit Level 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 690f1a712f6d9cb4788042f40746305e, type: 3}
-  m_Color: {r: 1, g: 0.52878207, b: 0.22075468, a: 1}
+  m_Color: {r: 1, g: 0.21960783, b: 0.24893312, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &-3340930491259261783
+--- !u!114 &-6629672071919831593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,6 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fd657a06df5684a910d95d092b7236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 5
+  level: 6
   manager: {fileID: 0}
   isPopping: 0

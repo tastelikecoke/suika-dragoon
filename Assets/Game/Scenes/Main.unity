@@ -707,6 +707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 323314689}
+  - component: {fileID: 323314690}
   m_Layer: 0
   m_Name: Fruit Root
   m_TagString: Untagged
@@ -729,6 +730,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2117182617}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &323314690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323314688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87079600ebb0374c95e0a38c2207dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitList:
+  - {fileID: 78220219139644148, guid: f4d32395b28256f47b03ea66bba9a38e, type: 3}
+  - {fileID: 78220219139644148, guid: 5c6130877ec91ee4b87c2a51d783be86, type: 3}
+  - {fileID: 78220219139644148, guid: 014d55b7ee1a43d43b0c282050d04c65, type: 3}
+  - {fileID: 78220219139644148, guid: e7e1534ec19e58046bf702523a0d68ab, type: 3}
+  - {fileID: 78220219139644148, guid: 82dc75b509fba2e4690c68f7028e7fe8, type: 3}
+  - {fileID: 78220219139644148, guid: 6482cd678fc57f54fa34f64e542fb999, type: 3}
+  - {fileID: 78220219139644148, guid: 942f7f4805955b448bab9e0be92e2943, type: 3}
+  - {fileID: 78220219139644148, guid: 0da9f800dd893a447aea776c879cdbef, type: 3}
+  - {fileID: 78220219139644148, guid: c166f8b42ee2dd54e854aaa81aca27a5, type: 3}
+  - {fileID: 78220219139644148, guid: ab9aeacb4ac97dd4bb87a94fd1cd4358, type: 3}
+  - {fileID: 78220219139644148, guid: 96521d4ee4beb2a4f9943badbb03a07d, type: 3}
+  fruitRoot: {fileID: 0}
 --- !u!1 &507028106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,9 +1457,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceMultiplier: 10
-  fruitPrefab: {fileID: 5347968990588496482, guid: 122a38a3bb6165546b35d8b63ab034ee, type: 3}
   fruitRoot: {fileID: 323314689}
   constrainedFruit: {fileID: 1019948320}
+  fruitManager: {fileID: 323314690}
 --- !u!1 &1035765065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1449,7 +1475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1035765066
 Transform:
   m_ObjectHideFlags: 0
@@ -2360,7 +2386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2026680178
 RectTransform:
   m_ObjectHideFlags: 0

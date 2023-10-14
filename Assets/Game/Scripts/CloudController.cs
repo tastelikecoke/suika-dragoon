@@ -7,11 +7,12 @@ public class CloudController : MonoBehaviour
     [SerializeField]
     private float forceMultiplier = 3f;
     [SerializeField]
-    private GameObject fruitPrefab;
-    [SerializeField]
     private Transform fruitRoot;
     [SerializeField]
     private Transform constrainedFruit;
+    [SerializeField]
+    private FruitManager fruitManager;
+    
     private void Update()
     {
         var horizontalInput = Input.GetAxis("Horizontal");
@@ -21,8 +22,11 @@ public class CloudController : MonoBehaviour
         var fireInput = Input.GetButtonDown("Submit");
         if (fireInput)
         {
-            var newFruit = Instantiate(fruitPrefab, fruitRoot);
+            var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
             newFruit.transform.position = constrainedFruit.position;
+            newFruit.GetComponent<Fruit>().manager = fruitManager;
+            
+            
         }
     }
 }
