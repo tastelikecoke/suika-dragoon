@@ -9,24 +9,49 @@ public class CloudController : MonoBehaviour
     [SerializeField]
     private Transform fruitRoot;
     [SerializeField]
+    private Transform fruitContainer;
+    [SerializeField]
     private Transform constrainedFruit;
     [SerializeField]
     private FruitManager fruitManager;
-    
-    private void Update()
+
+    private GameObject equippedFruit = null;
+
+    private void Start()
+    {
+    }
+
+    private void EquipNextFruit()
+    {
+        var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitContainer);
+        newFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        newFruit.GetComponent<CircleCollider2D>().enabled = false;
+        equippedFruit = newFruit;
+    }
+
+    private void FixedUpdate()
     {
         var horizontalInput = Input.GetAxis("Horizontal");
         var rb = GetComponent<Rigidbody2D>();
-        rb.velocity = forceMultiplier * new Vector3(horizontalInput, 0f, 0f);
+        rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
+    }
+    private void Update()
+    {
+        if (equippedFruit == null || equippedFruit.GetComponent<Fruit>().isTouched)
+        {
+            EquipNextFruit();
+        }
 
         var fireInput = Input.GetButtonDown("Submit");
-        if (fireInput)
+        if (fireInput && fruitContainer.childCount > 0)
         {
+            Destroy(equippedFruit);
+            
             var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
             newFruit.transform.position = constrainedFruit.position;
             newFruit.GetComponent<Fruit>().manager = fruitManager;
-            
-            
+            equippedFruit = newFruit;
+            fruitManager.AssignNextFruit();
         }
     }
 }
