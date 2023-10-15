@@ -2532,6 +2532,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &925935417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 925935418}
+  m_Layer: 0
+  m_Name: Next Fruit Root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &925935418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925935417}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.93, y: 2.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2117182617}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011120901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,6 +2846,7 @@ MonoBehaviour:
   fruitRoot: {fileID: 323314689}
   fruitContainer: {fileID: 1963349817}
   constrainedFruit: {fileID: 1019948320}
+  nextNextFruitRoot: {fileID: 925935418}
   fruitManager: {fileID: 323314690}
 --- !u!1 &1035765065
 GameObject:
@@ -4651,6 +4683,7 @@ Transform:
   - {fileID: 323314689}
   - {fileID: 507028107}
   - {fileID: 1035765066}
+  - {fileID: 925935418}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2144480515

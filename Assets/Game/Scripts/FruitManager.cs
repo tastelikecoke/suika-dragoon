@@ -40,12 +40,21 @@ public class FruitManager : MonoBehaviour
     public void AssignNextFruit()
     {
         int maxFruit = Math.Min(fruitList.Length, 5);
-        nextFruit = fruitList[Random.Range(0, maxFruit)];
-        //nextFruit = fruitList[1];
+        nextFruit = nextNextFruit;
+        nextNextFruit = null;
+        if (nextFruit == null)
+        {
+            nextFruit = fruitList[Random.Range(0, maxFruit)];
+        }
+        nextNextFruit = fruitList[Random.Range(0, maxFruit)];
     }
     public GameObject GetNextFruit()
     {
         return nextFruit;
+    }
+    public GameObject GetNextNextFruit()
+    {
+        return nextNextFruit;
     }
     
     public void GenerateFruit(Fruit fruit1, Fruit fruit2)
