@@ -16,6 +16,8 @@ public class CloudController : MonoBehaviour
     private Transform nextNextFruitRoot;
     [SerializeField]
     private FruitManager fruitManager;
+    [SerializeField]
+    private Vector3 tilt;
 
     private GameObject equippedFruit = null;
     private GameObject equippedNextNextFruit = null;
@@ -29,6 +31,7 @@ public class CloudController : MonoBehaviour
         var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitContainer);
         newFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         newFruit.GetComponent<CircleCollider2D>().enabled = false;
+        newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
         equippedFruit = newFruit;
         
         Destroy(equippedNextNextFruit);
@@ -55,10 +58,12 @@ public class CloudController : MonoBehaviour
         var fireInput = Input.GetButtonDown("Fire1");
         if (fireInput && fruitContainer.childCount > 0)
         {
+            var equippedRotation = equippedFruit.transform.rotation;
             Destroy(equippedFruit);
             
             var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
             newFruit.transform.position = constrainedFruit.position;
+            newFruit.transform.rotation = equippedRotation;
             newFruit.GetComponent<Fruit>().manager = fruitManager;
             //follow velocity. Just don't lol. funny though
             //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
