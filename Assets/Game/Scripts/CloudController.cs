@@ -60,7 +60,8 @@ public class CloudController : MonoBehaviour
             var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
             newFruit.transform.position = constrainedFruit.position;
             newFruit.GetComponent<Fruit>().manager = fruitManager;
-            newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
+            //follow velocity. Just don't lol. funny though
+            //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
             equippedFruit = newFruit;
             //equippedFruit.GetComponent<Fruit>().isTouched = true;
             fruitManager.AssignNextFruit();
