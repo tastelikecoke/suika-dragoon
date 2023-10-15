@@ -63,7 +63,7 @@ public class CloudController : MonoBehaviour
             //follow velocity. Just don't lol. funny though
             //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
             equippedFruit = newFruit;
-            //equippedFruit.GetComponent<Fruit>().isTouched = true;
+            equippedFruit.GetComponent<Fruit>().isTouched = true;
             fruitManager.AssignNextFruit();
         }
     }
