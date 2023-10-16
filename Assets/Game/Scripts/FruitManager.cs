@@ -43,7 +43,7 @@ public class FruitManager : MonoBehaviour
     
     public void AssignNextFruit()
     {
-        int maxFruit = Math.Min(fruitList.Length, 5);
+        int maxFruit = Math.Min(fruitList.Length, 1); //5
         nextFruit = nextNextFruit;
         nextNextFruit = null;
         if (nextFruit == null)
@@ -61,17 +61,20 @@ public class FruitManager : MonoBehaviour
         return nextNextFruit;
     }
     
-    public void GenerateFruit(Fruit fruit1, Fruit fruit2)
+    public IEnumerator GenerateFruitCR(Fruit fruit1, Fruit fruit2)
     {
-        if (fruit1.level != fruit2.level) return;
-        if (fruitList.Length <= fruit1.level) return;
+        if (fruit1.level != fruit2.level) yield break;
+        if (fruitList.Length <= fruit1.level) yield break;
+        
+        StartCoroutine(fruit1.Pop());
+        StartCoroutine(fruit2.Pop());
+        
+        yield return new WaitForSeconds(1f/12f);
+        
         totalScore += fruit1.level * (fruit1.level + 1) / 2;
         var newFruit = Instantiate(fruitList[fruit1.level], fruitRoot);
         newFruit.transform.position = Vector3.Lerp(fruit1.transform.position, fruit2.transform.position, 0.5f);
         newFruit.GetComponent<Fruit>().manager = this;
-        
-        Destroy(fruit1.gameObject);
-        Destroy(fruit2.gameObject);
     }
 
     public void Fail()

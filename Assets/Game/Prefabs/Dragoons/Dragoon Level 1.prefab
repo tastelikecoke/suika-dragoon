@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3533563518764060911}
   - component: {fileID: 8507777010395805750}
   - component: {fileID: 1890637760877701684}
+  - component: {fileID: 4675472859186798290}
   m_Layer: 0
   m_Name: Dragoon Level 1
   m_TagString: Untagged
@@ -165,3 +166,24 @@ MonoBehaviour:
   manager: {fileID: 0}
   isPopping: 0
   isTouched: 0
+--- !u!95 &4675472859186798290
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78220219139644148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b1c62487a1990446aa0bc43697e5805, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -31,7 +31,7 @@ public class Fruit : MonoBehaviour
         {
             if (manager)
             {
-                manager.GenerateFruit(this, contactFruit);
+                StartCoroutine(manager.GenerateFruitCR(this, contactFruit));
                 this.isPopping = true;
                 contactFruit.isPopping = true;
             }
@@ -41,5 +41,19 @@ public class Fruit : MonoBehaviour
     {
         if (col.gameObject.name == "Death")
             manager.Fail();
+    }
+    
+    
+    public IEnumerator Pop()
+    {
+        var animator = GetComponent<Animator>();
+        if(animator)
+            animator.SetTrigger("Pop");
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        
+        yield return new WaitForSeconds(1f/12f);
+        
+        Destroy(gameObject);
     }
 }
