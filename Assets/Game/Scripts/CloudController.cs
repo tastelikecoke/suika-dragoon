@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CloudController : MonoBehaviour
 {
@@ -18,13 +20,12 @@ public class CloudController : MonoBehaviour
     private FruitManager fruitManager;
     [SerializeField]
     private Vector3 tilt;
+    [SerializeField]
+    private RectTransform activeArea = null;
 
     private GameObject equippedFruit = null;
     private GameObject equippedNextNextFruit = null;
 
-    private void Start()
-    {
-    }
 
     private void EquipNextFruit()
     {
@@ -46,9 +47,35 @@ public class CloudController : MonoBehaviour
     {
         // do not execute if on retry.
         if (fruitManager.isFailed) return;
-        var horizontalInput = Input.GetAxis("Horizontal");
+
         var rb = GetComponent<Rigidbody2D>();
+        var horizontalInput = Input.GetAxis("Horizontal");
         rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
+
+        if (activeArea != null)
+        {
+            if (RectTransformUtility.RectangleContainsScreenPoint(activeArea, Input.mousePosition, Camera.main))
+            {
+                UpdateMouse();
+            }
+        }
+    }
+
+    public void UpdateMouse()
+    {
+        var rb = GetComponent<Rigidbody2D>();
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Math.Abs(transform.position.x - mousePosition.x) < 0.05f) return;
+        if (transform.position.x > mousePosition.x)
+        {
+            rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(-1.0f, 0f, 0f);
+        }
+        
+        if (transform.position.x < mousePosition.x)
+        {
+            rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(1.0f, 0f, 0f);
+        }
     }
     private void Update()
     {
@@ -60,7 +87,7 @@ public class CloudController : MonoBehaviour
             EquipNextFruit();
         }
 
-        var fireInput = Input.GetButtonDown("Fire1");
+        var fireInput = Input.GetButtonDown("Fire1") || Input.GetButtonDown("Submit");;
         if (fireInput && fruitContainer.childCount > 0)
         {
             var equippedRotation = equippedFruit.transform.rotation;

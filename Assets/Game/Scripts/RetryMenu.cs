@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class RetryMenu : MonoBehaviour
@@ -19,6 +20,10 @@ public class RetryMenu : MonoBehaviour
         /// transition
         this.GetComponent<Canvas>().enabled = false;
     }
+    public void PressReturnToTitle()
+    {
+        SceneManager.LoadScene("Launcher");
+    }
 
     public void Show(bool isHighScore = false)
     {
@@ -27,5 +32,21 @@ public class RetryMenu : MonoBehaviour
         screenshot.texture = _fruitManager.screenshot;
         highScoreText.SetActive(isHighScore);
         normalText.SetActive(!isHighScore);
+    }
+    public void Update()
+    {
+        if (GetComponent<Canvas>().enabled)
+        {
+            if (Input.GetButtonDown("Submit"))
+            {
+                PressRetry();
+            }
+            
+            if (Input.GetButtonDown("Cancel"))
+            {
+                PressReturnToTitle();
+            }
+        }
+        
     }
 }

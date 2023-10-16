@@ -12,7 +12,7 @@ public class GameSystem : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
             return;
         }
 
