@@ -11,6 +11,8 @@ public class FruitManager : MonoBehaviour
     private Transform fruitRoot;
     [SerializeField]
     private RetryMenu retryMenu;
+    [SerializeField]
+    private AudioSource audioSource;
 
     public int totalScore = 0;
     
@@ -65,6 +67,9 @@ public class FruitManager : MonoBehaviour
     {
         if (fruit1.level != fruit2.level) yield break;
         if (fruitList.Length <= fruit1.level) yield break;
+        
+        if(!audioSource.isPlaying)
+            audioSource.Play();
         
         StartCoroutine(fruit1.Pop());
         StartCoroutine(fruit2.Pop());

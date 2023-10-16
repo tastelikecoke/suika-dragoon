@@ -22,6 +22,10 @@ public class CloudController : MonoBehaviour
     private Vector3 tilt;
     [SerializeField]
     private RectTransform activeArea = null;
+    [SerializeField]
+    private bool isDebugOn = false;
+    [SerializeField]
+    private AudioSource audioSource;
 
     private GameObject equippedFruit = null;
     private GameObject equippedNextNextFruit = null;
@@ -33,7 +37,6 @@ public class CloudController : MonoBehaviour
         newFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         newFruit.GetComponent<CircleCollider2D>().enabled = false;
         newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
-        newFruit.GetComponent<SpriteRenderer>().sortingOrder = -1;
         equippedFruit = newFruit;
         
         Destroy(equippedNextNextFruit);
@@ -101,11 +104,18 @@ public class CloudController : MonoBehaviour
             newFruit.transform.position = constrainedFruit.position + (Vector3)(Random.insideUnitCircle * 0.01f);
             newFruit.transform.rotation = equippedRotation;
             newFruit.GetComponent<Fruit>().manager = fruitManager;
+            
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+            
             //follow velocity. Just don't lol. funny though
             //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
             equippedFruit = newFruit;
             // set this to allow spam
-            equippedFruit.GetComponent<Fruit>().isTouched = true;
+#if UNITY_EDITOR
+            if(isDebugOn)
+                equippedFruit.GetComponent<Fruit>().isTouched = true;
+#endif
             fruitManager.AssignNextFruit();
         }
     }
