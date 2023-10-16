@@ -66,6 +66,8 @@ public class CloudController : MonoBehaviour
         var rb = GetComponent<Rigidbody2D>();
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
+        transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
+        /*
         if (Math.Abs(transform.position.x - mousePosition.x) < 0.05f) return;
         if (transform.position.x > mousePosition.x)
         {
@@ -75,7 +77,7 @@ public class CloudController : MonoBehaviour
         if (transform.position.x < mousePosition.x)
         {
             rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(1.0f, 0f, 0f);
-        }
+        }*/
     }
     private void Update()
     {
