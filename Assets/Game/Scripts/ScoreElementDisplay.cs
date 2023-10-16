@@ -17,7 +17,7 @@ public class ScoreElementDisplay : MonoBehaviour
     }
     public void Depopulate()
     {
-        this.score.text = "--";
-        this.rank.text = "----";
+        this.score.text = "----";
+        this.rank.text = "--";
     }
 }
