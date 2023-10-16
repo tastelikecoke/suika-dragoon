@@ -33,6 +33,7 @@ public class CloudController : MonoBehaviour
         newFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         newFruit.GetComponent<CircleCollider2D>().enabled = false;
         newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
+        newFruit.GetComponent<SpriteRenderer>().sortingOrder = -1;
         equippedFruit = newFruit;
         
         Destroy(equippedNextNextFruit);
@@ -104,7 +105,7 @@ public class CloudController : MonoBehaviour
             //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
             equippedFruit = newFruit;
             // set this to allow spam
-            //equippedFruit.GetComponent<Fruit>().isTouched = true;
+            equippedFruit.GetComponent<Fruit>().isTouched = true;
             fruitManager.AssignNextFruit();
         }
     }

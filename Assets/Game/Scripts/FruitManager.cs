@@ -43,7 +43,7 @@ public class FruitManager : MonoBehaviour
     
     public void AssignNextFruit()
     {
-        int maxFruit = Math.Min(fruitList.Length, 1); //5
+        int maxFruit = Math.Min(fruitList.Length, 5);
         nextFruit = nextNextFruit;
         nextNextFruit = null;
         if (nextFruit == null)
