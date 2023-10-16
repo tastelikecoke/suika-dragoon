@@ -19,23 +19,33 @@ public class Scoreboard : MonoBehaviour
 
         var scores = GameSystem.Instance.localScores;
 
-        firstLocalDisplay.gameObject.SetActive(scores.Count >= 1);
-        if (firstLocalDisplay.gameObject.activeSelf)
+        if (scores.Count >= 1)
         {
             firstLocalDisplay.Populate(1, scores[^1]);
         }
+        else
+        {
+            firstLocalDisplay.Depopulate();
+        }
         
-        secondLocalDisplay.gameObject.SetActive(scores.Count >= 2);
-        if (secondLocalDisplay.gameObject.activeSelf)
+        if (scores.Count >= 2)
         {
             secondLocalDisplay.Populate(2, scores[^2]);
         }
+        else
+        {
+            secondLocalDisplay.Depopulate();
+        }
         
-        thirdLocalDisplay.gameObject.SetActive(scores.Count >= 3);
-        if (thirdLocalDisplay.gameObject.activeSelf)
+        if (scores.Count >= 3)
         {
             thirdLocalDisplay.Populate(3, scores[^3]);
         }
+        else
+        {
+            thirdLocalDisplay.Depopulate();
+        }
+
 
         if (manager == null)
             manager = FindObjectOfType<FruitManager>();

@@ -15,4 +15,9 @@ public class ScoreElementDisplay : MonoBehaviour
         this.score.text = score.ToString();
         this.rank.text = rank.ToString();
     }
+    public void Depopulate()
+    {
+        this.score.text = "--";
+        this.rank.text = "----";
+    }
 }

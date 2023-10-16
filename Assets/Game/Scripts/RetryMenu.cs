@@ -9,6 +9,10 @@ public class RetryMenu : MonoBehaviour
     private FruitManager _fruitManager;
     [SerializeField]
     private RawImage screenshot;
+    [SerializeField]
+    private GameObject highScoreText;
+    [SerializeField]
+    private GameObject normalText;
     public void PressRetry()
     {
         _fruitManager.Retry();
@@ -16,10 +20,12 @@ public class RetryMenu : MonoBehaviour
         this.GetComponent<Canvas>().enabled = false;
     }
 
-    public void Show()
+    public void Show(bool isHighScore = false)
     {
         /// transition
         this.GetComponent<Canvas>().enabled = true;
         screenshot.texture = _fruitManager.screenshot;
+        highScoreText.SetActive(isHighScore);
+        normalText.SetActive(!isHighScore);
     }
 }

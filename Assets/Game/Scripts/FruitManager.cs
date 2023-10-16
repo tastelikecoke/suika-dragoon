@@ -81,6 +81,7 @@ public class FruitManager : MonoBehaviour
     public IEnumerator FailCR()
     {
         isFailed = true;
+        var isHighScore = GameSystem.Instance.GetLocalRank(totalScore) == 1;
 
         if (GameSystem.Instance != null)
         {
@@ -99,6 +100,7 @@ public class FruitManager : MonoBehaviour
             childFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
         yield return new WaitForSeconds(1f);
-        retryMenu.Show();
+        
+        retryMenu.Show(isHighScore);
     }
 }
