@@ -16,6 +16,9 @@ public class FruitManager : MonoBehaviour
     
     private GameObject nextFruit;
     private GameObject nextNextFruit;
+    
+    public bool isFailed = false;
+    public Texture2D screenshot = null;
 
 
     private void Start()
@@ -26,6 +29,7 @@ public class FruitManager : MonoBehaviour
     public void Retry()
     {
         totalScore = 0;
+        isFailed = false;
         AssignNextFruit();
 
         if (fruitRoot.childCount > 0)
@@ -76,6 +80,13 @@ public class FruitManager : MonoBehaviour
     }
     public IEnumerator FailCR()
     {
+        isFailed = true;
+
+        yield return new WaitForEndOfFrame();
+        screenshot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false);
+        var texture = ScreenCapture.CaptureScreenshotAsTexture();
+        screenshot.SetPixels(texture.GetPixels());
+        screenshot.Apply();
         
         foreach (Transform child in fruitRoot.transform)
         {

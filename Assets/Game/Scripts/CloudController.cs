@@ -44,12 +44,17 @@ public class CloudController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // do not execute if on retry.
+        if (fruitManager.isFailed) return;
         var horizontalInput = Input.GetAxis("Horizontal");
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
     }
     private void Update()
     {
+        // do not execute if on retry.
+        if (fruitManager.isFailed) return;
+    
         if (equippedFruit == null || equippedFruit.GetComponent<Fruit>().isTouched)
         {
             EquipNextFruit();

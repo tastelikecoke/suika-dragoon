@@ -11,6 +11,9 @@ public class Fruit : MonoBehaviour
     public bool isTouched = true;
     private void OnCollisionEnter2D(Collision2D col)
     {
+        // do not execute if on retry.
+        if (manager.isFailed) return;
+        
         if (isPopping) return;
         var contactFruit = col.gameObject.GetComponent<Fruit>();
         if (contactFruit == null)
