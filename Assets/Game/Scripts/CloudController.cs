@@ -96,7 +96,8 @@ public class CloudController : MonoBehaviour
             Destroy(equippedFruit);
             
             var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
-            newFruit.transform.position = constrainedFruit.position;
+            /* add jitter */
+            newFruit.transform.position = constrainedFruit.position + (Vector3)(Random.insideUnitCircle * 0.01f);
             newFruit.transform.rotation = equippedRotation;
             newFruit.GetComponent<Fruit>().manager = fruitManager;
             //follow velocity. Just don't lol. funny though
