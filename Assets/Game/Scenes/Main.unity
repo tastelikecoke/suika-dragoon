@@ -3969,11 +3969,19 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 451795907}
     m_Modifications:
+    - target: {fileID: 740959474645751484, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4833860168757239197, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_Name
       value: Board Rank (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4833860168757239197, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448335991248963421, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6247,7 +6255,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 542.35, y: -110.78}
+  m_AnchoredPosition: {x: 542.35, y: -110.77997}
   m_SizeDelta: {x: -1373, y: -570.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1620510335
@@ -7668,6 +7676,14 @@ PrefabInstance:
     - target: {fileID: 4833860168757239197, guid: f655e5f3b81328b4583b5d61ff50e34f, type: 3}
       propertyPath: m_Name
       value: Flipped Rank (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5338592823372340146, guid: f655e5f3b81328b4583b5d61ff50e34f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310754226709287036, guid: f655e5f3b81328b4583b5d61ff50e34f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9018053179704017973, guid: f655e5f3b81328b4583b5d61ff50e34f, type: 3}
       propertyPath: m_Pivot.x
