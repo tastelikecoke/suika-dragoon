@@ -280,6 +280,7 @@ GameObject:
   - component: {fileID: 4375924730862995940}
   - component: {fileID: 7168878556370939878}
   - component: {fileID: 7057411925810275250}
+  - component: {fileID: 1738385345146119587}
   m_Layer: 5
   m_Name: Board Rank
   m_TagString: Untagged
@@ -366,3 +367,17 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1738385345146119587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833860168757239197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f988aaded0c6f74eaca7aebb27418af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 563453883377930659}
+  rank: {fileID: 2216758323987165523}

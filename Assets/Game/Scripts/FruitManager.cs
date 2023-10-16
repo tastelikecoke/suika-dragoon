@@ -82,6 +82,11 @@ public class FruitManager : MonoBehaviour
     {
         isFailed = true;
 
+        if (GameSystem.Instance != null)
+        {
+            GameSystem.Instance.UploadLocalScore(totalScore);
+        }
+
         yield return new WaitForEndOfFrame();
         screenshot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, false);
         var texture = ScreenCapture.CaptureScreenshotAsTexture();
