@@ -13,6 +13,8 @@ public class FruitManager : MonoBehaviour
     public RetryMenu retryMenu;
     [SerializeField]
     private AudioSource audioSource;
+    [SerializeField]
+    private GameObject ratFruit;
 
     public int totalScore = 0;
     
@@ -51,9 +53,27 @@ public class FruitManager : MonoBehaviour
         if (nextFruit == null)
         {
             nextFruit = fruitList[Random.Range(0, maxFruit)];
+            if (nextFruit.GetComponent<Fruit>().level == 1)
+            {
+                // 10% rat Chance
+                if (10f > Random.Range(0f, 100f))
+                {
+                    nextFruit = ratFruit;
+                }
+            }
+            
         }
         nextNextFruit = fruitList[Random.Range(0, maxFruit)];
+        if (nextNextFruit.GetComponent<Fruit>().level == 1)
+        {
+            // 10% rat Chance
+            if (10f > Random.Range(0f, 100f))
+            {
+                nextNextFruit = ratFruit;
+            }
+        }
     }
+    
     public GameObject GetNextFruit()
     {
         return nextFruit;

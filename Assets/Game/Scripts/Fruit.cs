@@ -9,10 +9,12 @@ public class Fruit : MonoBehaviour
     public FruitManager manager;
     public bool isPopping = false;
     public bool isTouched = true;
+    public bool isRat = false;
     private void OnCollisionEnter2D(Collision2D col)
     {
         // do not execute if on retry.
         if (manager.isFailed) return;
+        
         
         if (isPopping) return;
         var contactFruit = col.gameObject.GetComponent<Fruit>();
@@ -31,6 +33,9 @@ public class Fruit : MonoBehaviour
         {
             if (manager)
             {
+                /* rat to rat fusion only. I am genius */
+                if (isRat != contactFruit.isRat) return;
+                
                 StartCoroutine(manager.GenerateFruitCR(this, contactFruit));
                 this.isPopping = true;
                 contactFruit.isPopping = true;
