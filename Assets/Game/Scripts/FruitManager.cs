@@ -111,6 +111,7 @@ public class FruitManager : MonoBehaviour
         StartCoroutine(fruit1.Pop());
         StartCoroutine(fruit2.Pop());
         
+        //yield return new WaitForSeconds(3f);
         yield return new WaitForSeconds(1f/12f);
         
         totalScore += fruit1.level * (fruit1.level + 1) / 2;

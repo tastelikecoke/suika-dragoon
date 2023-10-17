@@ -45,9 +45,9 @@ public class Fruit : MonoBehaviour
                 /* rat to rat fusion only. I am genius */
                 if (isRat != contactFruit.isRat) return;
                 
-                StartCoroutine(manager.GenerateFruitCR(this, contactFruit));
                 this.isPopping = true;
                 contactFruit.isPopping = true;
+                StartCoroutine(manager.GenerateFruitCR(this, contactFruit));
             }
         }
     }
@@ -58,6 +58,11 @@ public class Fruit : MonoBehaviour
     }
     public void Fail()
     {
+        if(gameObject.GetComponent<CircleCollider2D>() != null)
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        if(gameObject.GetComponent<PolygonCollider2D>() != null)
+            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         var animator = GetComponent<Animator>();
         if (animator)
         {
@@ -65,16 +70,16 @@ public class Fruit : MonoBehaviour
             animator.enabled = true;
             animator.SetTrigger("Shake");
         }
-        if(gameObject.GetComponent<CircleCollider2D>() != null)
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        if(gameObject.GetComponent<PolygonCollider2D>() != null)
-            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
     }
 
 
     public IEnumerator Pop()
     {
+        if(gameObject.GetComponent<CircleCollider2D>() != null)
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        if(gameObject.GetComponent<PolygonCollider2D>() != null)
+            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         var animator = GetComponent<Animator>();
         if (animator)
         {
@@ -82,12 +87,8 @@ public class Fruit : MonoBehaviour
             animator.enabled = true;
             animator.SetTrigger("Pop");
         }
-        if(gameObject.GetComponent<CircleCollider2D>() != null)
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        if(gameObject.GetComponent<PolygonCollider2D>() != null)
-            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         
+        //yield return new WaitForSeconds(3f);
         yield return new WaitForSeconds(1f/12f);
         
         Destroy(gameObject);
