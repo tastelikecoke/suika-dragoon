@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,6 +26,8 @@ public class FruitManager : MonoBehaviour
     private GameObject pomuFruit;
     [SerializeField]
     private float pomuChance = 5f;
+    [SerializeField]
+    private TMP_Text buildNumberText;
 
     public int totalScore = 0;
     
@@ -37,6 +40,7 @@ public class FruitManager : MonoBehaviour
 
     private void Start()
     {
+        buildNumberText.text = Application.version;
         Retry();
     }
     
