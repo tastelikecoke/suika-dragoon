@@ -14,6 +14,8 @@ public class FruitManager : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
+    private AudioSource ratAudioSource;
+    [SerializeField]
     private GameObject ratFruit;
 
     public int totalScore = 0;
@@ -49,14 +51,15 @@ public class FruitManager : MonoBehaviour
     {
         int maxFruit = Math.Min(fruitList.Length, 5);
         nextFruit = nextNextFruit;
+        
         nextNextFruit = null;
         if (nextFruit == null)
         {
             nextFruit = fruitList[Random.Range(0, maxFruit)];
             if (nextFruit.GetComponent<Fruit>().level == 1)
             {
-                // 10% rat Chance
-                if (10f > Random.Range(0f, 100f))
+                // 5% rat Chance
+                if (5f > Random.Range(0f, 100f))
                 {
                     nextFruit = ratFruit;
                 }
@@ -66,12 +69,18 @@ public class FruitManager : MonoBehaviour
         nextNextFruit = fruitList[Random.Range(0, maxFruit)];
         if (nextNextFruit.GetComponent<Fruit>().level == 1)
         {
-            // 10% rat Chance
-            if (10f > Random.Range(0f, 100f))
+            // 5% rat Chance
+            if (5f > Random.Range(0f, 100f))
             {
                 nextNextFruit = ratFruit;
             }
         }
+    }
+
+    public void CheckRatEquipped()
+    {
+        if(nextFruit == ratFruit)
+            ratAudioSource.Play();
     }
     
     public GameObject GetNextFruit()

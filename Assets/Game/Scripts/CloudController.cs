@@ -49,6 +49,7 @@ public class CloudController : MonoBehaviour
         newFruit.GetComponent<CircleCollider2D>().enabled = false;
         newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
         equippedFruit = newFruit;
+        fruitManager.CheckRatEquipped();
         
         Destroy(equippedNextNextFruit);
         
