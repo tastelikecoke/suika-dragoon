@@ -7,6 +7,11 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
+        SceneManager.LoadScene("Main");
+        
+        // Loader is ugly and unnecessary
+        
+        /*
         StartCoroutine(StartGameCR());
     }
     public IEnumerator StartGameCR()
@@ -19,6 +24,7 @@ public class MainMenu : MonoBehaviour
         GetComponent<Animator>().SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
+        */
     }
 
     private void Update()
