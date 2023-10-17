@@ -21,8 +21,6 @@ public class CloudController : MonoBehaviour
     [SerializeField]
     private Vector3 tilt;
     [SerializeField]
-    private RectTransform activeArea = null;
-    [SerializeField]
     private bool isDebugOn = false;
     [SerializeField]
     private AudioSource audioSource;
@@ -30,6 +28,8 @@ public class CloudController : MonoBehaviour
     private bool isPointerHovering = false;
     [SerializeField]
     private bool isPointerClicked = false;
+    [SerializeField]
+    private PauseMenu pauseMenu;
 
     private GameObject equippedFruit = null;
     private GameObject equippedNextNextFruit = null;
@@ -79,17 +79,6 @@ public class CloudController : MonoBehaviour
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
-        /*
-        if (Math.Abs(transform.position.x - mousePosition.x) < 0.05f) return;
-        if (transform.position.x > mousePosition.x)
-        {
-            rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(-1.0f, 0f, 0f);
-        }
-        
-        if (transform.position.x < mousePosition.x)
-        {
-            rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(1.0f, 0f, 0f);
-        }*/
     }
     private void Update()
     {
@@ -104,6 +93,11 @@ public class CloudController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && GameSystem.Instance != null)
         {
             GameSystem.Instance.bgm.mute = !GameSystem.Instance.bgm.mute;
+        }
+        
+        if (Input.GetButtonDown("Cancel") && !pauseMenu.GetComponent<Canvas>().enabled && !fruitManager.retryMenu.GetComponent<Canvas>().enabled)
+        {
+            StartCoroutine(pauseMenu.ShowCR());
         }
 
         var fireInput = isPointerClicked || Input.GetButtonDown("Submit");

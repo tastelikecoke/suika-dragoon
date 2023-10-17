@@ -10,7 +10,7 @@ public class FruitManager : MonoBehaviour
     [SerializeField]
     private Transform fruitRoot;
     [SerializeField]
-    private RetryMenu retryMenu;
+    public RetryMenu retryMenu;
     [SerializeField]
     private AudioSource audioSource;
 

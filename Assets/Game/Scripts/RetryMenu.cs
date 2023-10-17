@@ -16,9 +16,13 @@ public class RetryMenu : MonoBehaviour
     private GameObject normalText;
     public void PressRetry()
     {
-        _fruitManager.Retry();
         /// transition
         this.GetComponent<Canvas>().enabled = false;
+        foreach (var selectable in GetComponentsInChildren<Selectable>())
+        {
+            selectable.interactable = false;
+        }
+        _fruitManager.Retry();
     }
     public void PressReturnToTitle()
     {
@@ -29,6 +33,10 @@ public class RetryMenu : MonoBehaviour
     {
         /// transition
         this.GetComponent<Canvas>().enabled = true;
+        foreach (var selectable in GetComponentsInChildren<Selectable>())
+        {
+            selectable.interactable = true;
+        }
         screenshot.texture = _fruitManager.screenshot;
         highScoreText.SetActive(isHighScore);
         normalText.SetActive(!isHighScore);
