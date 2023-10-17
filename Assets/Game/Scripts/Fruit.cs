@@ -44,6 +44,8 @@ public class Fruit : MonoBehaviour
             {
                 /* rat to rat fusion only. I am genius */
                 if (isRat != contactFruit.isRat) return;
+                /* I need to stop fusion with already fusing */
+                if (contactFruit.isPopping) return;
                 
                 this.isPopping = true;
                 contactFruit.isPopping = true;
