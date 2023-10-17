@@ -1587,8 +1587,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dragoon Drop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f68dac34f2cd4bc4088dc741b08155c7, type: 2}
-  m_sharedMaterial: {fileID: 6862948086684694721, guid: f68dac34f2cd4bc4088dc741b08155c7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
+  m_sharedMaterial: {fileID: 6862948086684694721, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7767,15 +7767,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Local Ranking
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f68dac34f2cd4bc4088dc741b08155c7, type: 2}
-  m_sharedMaterial: {fileID: 6862948086684694721, guid: f68dac34f2cd4bc4088dc741b08155c7, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
+  m_sharedMaterial: {fileID: 6862948086684694721, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292127464
+  m_fontColor: {r: 0.909804, g: 0.6666667, b: 0.8313726, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8353,19 +8353,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1708249673729098708, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchorMax.y
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1708249673729098708, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1708249673729098708, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1708249673729098708, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.y
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3294099419704306091, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
@@ -8406,11 +8398,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4645080053738768110, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 160.99998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4645080053738768110, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 58.289978
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4878671262448436511, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchoredPosition.x
