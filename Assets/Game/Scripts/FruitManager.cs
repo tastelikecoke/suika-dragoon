@@ -152,9 +152,9 @@ public class FruitManager : MonoBehaviour
         foreach (Transform child in fruitRoot.transform)
         {
             var childFruit = child.GetComponent<Fruit>();
-            childFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            childFruit.Fail();
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         
         retryMenu.Show(isHighScore);
     }

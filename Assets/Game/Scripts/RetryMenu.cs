@@ -14,6 +14,8 @@ public class RetryMenu : MonoBehaviour
     private GameObject highScoreText;
     [SerializeField]
     private GameObject normalText;
+    [SerializeField]
+    private AudioSource tada;
     public void PressRetry()
     {
         /// transition
@@ -40,6 +42,8 @@ public class RetryMenu : MonoBehaviour
         screenshot.texture = _fruitManager.screenshot;
         highScoreText.SetActive(isHighScore);
         normalText.SetActive(!isHighScore);
+        if(isHighScore)
+            tada.Play();
     }
     public void Update()
     {

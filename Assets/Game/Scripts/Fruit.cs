@@ -10,6 +10,15 @@ public class Fruit : MonoBehaviour
     public bool isPopping = false;
     public bool isTouched = true;
     public bool isRat = false;
+
+    private void Awake()
+    {
+        var animator = GetComponent<Animator>();
+        if (animator)
+        {
+            animator.enabled = false;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D col)
     {
         // do not execute if on retry.
@@ -47,13 +56,32 @@ public class Fruit : MonoBehaviour
         if (col.gameObject.name == "Death")
             manager.Fail();
     }
-    
-    
+    public void Fail()
+    {
+        var animator = GetComponent<Animator>();
+        if (animator)
+        {
+            
+            animator.enabled = true;
+            animator.SetTrigger("Shake");
+        }
+        if(gameObject.GetComponent<CircleCollider2D>() != null)
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        if(gameObject.GetComponent<PolygonCollider2D>() != null)
+            gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+    }
+
+
     public IEnumerator Pop()
     {
         var animator = GetComponent<Animator>();
-        if(animator)
+        if (animator)
+        {
+            
+            animator.enabled = true;
             animator.SetTrigger("Pop");
+        }
         if(gameObject.GetComponent<CircleCollider2D>() != null)
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
         if(gameObject.GetComponent<PolygonCollider2D>() != null)
