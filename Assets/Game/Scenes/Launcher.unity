@@ -205,8 +205,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 80091844}
   m_HandleRect: {fileID: 80091843}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.33017254
+  m_Value: 0.5345102
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pomu Rainpuff (I''m Pomu SFX, Freesound.org)
+  m_text: 'Pomu Rainpuff (I''m Pomu SFX)
 
     SFX'
   m_isRightToLeft: 0
@@ -1562,7 +1562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: -0.000030517578}
+  m_AnchoredPosition: {x: -0.000030517578, y: -309.52747}
   m_SizeDelta: {x: 0, y: 1257.07}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &413706703
@@ -3328,7 +3328,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1681157796}
   m_HandleRect: {fileID: 1681157795}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 0.49086392
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
