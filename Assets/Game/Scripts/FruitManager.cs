@@ -17,6 +17,14 @@ public class FruitManager : MonoBehaviour
     private AudioSource ratAudioSource;
     [SerializeField]
     private GameObject ratFruit;
+    [SerializeField]
+    private float ratChance = 5f;
+    [SerializeField]
+    private AudioSource pomuAudioSource;
+    [SerializeField]
+    private GameObject pomuFruit;
+    [SerializeField]
+    private float pomuChance = 5f;
 
     public int totalScore = 0;
     
@@ -59,7 +67,7 @@ public class FruitManager : MonoBehaviour
             if (nextFruit.GetComponent<Fruit>().level == 1)
             {
                 // 5% rat Chance
-                if (5f > Random.Range(0f, 100f))
+                if (ratChance > Random.Range(0f, 100f))
                 {
                     nextFruit = ratFruit;
                 }
@@ -70,7 +78,7 @@ public class FruitManager : MonoBehaviour
         if (nextNextFruit.GetComponent<Fruit>().level == 1)
         {
             // 5% rat Chance
-            if (5f > Random.Range(0f, 100f))
+            if (ratChance > Random.Range(0f, 100f))
             {
                 nextNextFruit = ratFruit;
             }
@@ -106,7 +114,17 @@ public class FruitManager : MonoBehaviour
         yield return new WaitForSeconds(1f/12f);
         
         totalScore += fruit1.level * (fruit1.level + 1) / 2;
-        var newFruit = Instantiate(fruitList[fruit1.level], fruitRoot);
+        var spawningFruit = fruitList[fruit1.level];
+        if (fruit1.level + 1 == 6)
+        {
+            // 5% pomu Chance
+            if (pomuChance > Random.Range(0f, 100f))
+            {
+                spawningFruit = pomuFruit;
+                pomuAudioSource.Play();
+            }
+        }
+        var newFruit = Instantiate(spawningFruit, fruitRoot);
         newFruit.transform.position = Vector3.Lerp(fruit1.transform.position, fruit2.transform.position, 0.5f);
         newFruit.GetComponent<Fruit>().manager = this;
     }
