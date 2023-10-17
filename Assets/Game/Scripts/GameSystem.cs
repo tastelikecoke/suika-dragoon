@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,21 @@ public class GameSystem : MonoBehaviour
         }
 
         Instance = this;
+        string storedScores = PlayerPrefs.GetString("dragoon_drop_save_file_for_local_ranking", null);
         localScores = new List<int>();
+        if (!string.IsNullOrEmpty(storedScores))
+        {
+            var scores = storedScores.Split(" ");
+            foreach(var score in scores)
+            {
+                int newScore = 0;
+                Int32.TryParse(score, out newScore);
+                if (newScore != 0)
+                {
+                    localScores.Add(newScore);
+                }
+            }
+        }
         DontDestroyOnLoad(this);
     }
 
@@ -26,6 +41,16 @@ public class GameSystem : MonoBehaviour
     {
         localScores.Add(score);
         localScores.Sort();
+
+        string storedScore = "";
+        foreach(var scoreInt in localScores)
+        {
+            if (storedScore == "") storedScore = scoreInt.ToString();
+            else storedScore = storedScore + " " + scoreInt.ToString();
+        }
+
+        PlayerPrefs.SetString("dragoon_drop_save_file_for_local_ranking", storedScore);
+        PlayerPrefs.Save();
     }
 
     public int GetLocalRank(int score)
