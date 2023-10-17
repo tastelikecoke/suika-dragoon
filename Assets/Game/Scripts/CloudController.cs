@@ -101,6 +101,11 @@ public class CloudController : MonoBehaviour
             EquipNextFruit();
         }
 
+        if (Input.GetButtonDown("Fire2") && GameSystem.Instance != null)
+        {
+            GameSystem.Instance.bgm.mute = !GameSystem.Instance.bgm.mute;
+        }
+
         var fireInput = isPointerClicked || Input.GetButtonDown("Submit");
         if (fireInput && fruitContainer.childCount > 0)
         {

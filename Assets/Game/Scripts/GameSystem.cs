@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameSystem : MonoBehaviour
 {
     public List<int> localScores;
+    public AudioSource bgm;
 
     public static GameSystem Instance = null;
     private void Awake()

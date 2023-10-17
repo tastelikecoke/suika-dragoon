@@ -7,7 +7,18 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("Main");
+        StartCoroutine(StartGameCR());
+    }
+    public IEnumerator StartGameCR()
+    {
+        GetComponent<Canvas>().enabled = true;
+        DontDestroyOnLoad(gameObject);
+        AsyncOperation operation = SceneManager.LoadSceneAsync("Main");
+        GetComponent<Animator>().SetTrigger("Start");
+        yield return new WaitUntil(() => operation.isDone);
+        GetComponent<Animator>().SetTrigger("End");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     private void Update()
