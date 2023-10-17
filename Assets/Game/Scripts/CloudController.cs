@@ -26,11 +26,22 @@ public class CloudController : MonoBehaviour
     private bool isDebugOn = false;
     [SerializeField]
     private AudioSource audioSource;
+    [SerializeField]
+    private bool isPointerHovering = false;
+    [SerializeField]
+    private bool isPointerClicked = false;
 
     private GameObject equippedFruit = null;
     private GameObject equippedNextNextFruit = null;
 
-
+    public void SetPointerHover(bool value)
+    {
+        isPointerHovering = value;
+    }
+    public void SetPointerClick(bool value)
+    {
+        isPointerClicked = value;
+    }
     private void EquipNextFruit()
     {
         var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitContainer);
@@ -56,12 +67,9 @@ public class CloudController : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal");
         rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
 
-        if (activeArea != null)
+        if (isPointerHovering)
         {
-            if (RectTransformUtility.RectangleContainsScreenPoint(activeArea, Input.mousePosition, Camera.main))
-            {
-                UpdateMouse();
-            }
+            UpdateMouse();
         }
     }
 
@@ -93,7 +101,7 @@ public class CloudController : MonoBehaviour
             EquipNextFruit();
         }
 
-        var fireInput = Input.GetButtonDown("Fire1") || Input.GetButtonDown("Submit");;
+        var fireInput = isPointerClicked || Input.GetButtonDown("Submit");
         if (fireInput && fruitContainer.childCount > 0)
         {
             var equippedRotation = equippedFruit.transform.rotation;
@@ -118,5 +126,7 @@ public class CloudController : MonoBehaviour
 #endif
             fruitManager.AssignNextFruit();
         }
+
+        isPointerClicked = false;
     }
 }
