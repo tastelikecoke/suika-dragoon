@@ -2041,6 +2041,10 @@ MonoBehaviour:
   pomuFruit: {fileID: 78220219139644148, guid: 6affee0707a88254d811b80bc3ea750e, type: 3}
   pomuChance: 5
   buildNumberText: {fileID: 886790313}
+  explosionFruit: {fileID: 78220219139644148, guid: 78f652652024dd84b9bc58cf47a272e2, type: 3}
+  explosionChance: 100
+  explosion: {fileID: 2053978647959197256, guid: 91b114b20c550ca4683b9c8eb6f89875, type: 3}
+  explosionPower: 1000
   totalScore: 1
   isFailed: 0
   screenshot: {fileID: 0}

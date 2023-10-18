@@ -10,6 +10,7 @@ public class Fruit : MonoBehaviour
     public bool isPopping = false;
     public bool isTouched = true;
     public bool isRat = false;
+    public bool isExplosive = false;
 
     private void Awake()
     {
@@ -30,11 +31,17 @@ public class Fruit : MonoBehaviour
         if (contactFruit == null)
         {
             if (col.gameObject.name == "Floor")
+            {
+                if (!isTouched && isExplosive)
+                    StartCoroutine(Explode());
                 isTouched = true;
+            }
             return;
         }
         else
         {
+            if (!isTouched && isExplosive)
+                StartCoroutine(Explode());
             isTouched = true;
         }
         
@@ -55,9 +62,12 @@ public class Fruit : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (!manager)
+            return;
         if (col.gameObject.name == "Death")
             manager.Fail();
     }
+    
     public void Fail()
     {
         if(gameObject.GetComponent<CircleCollider2D>() != null)
@@ -94,5 +104,12 @@ public class Fruit : MonoBehaviour
         yield return new WaitForSeconds(1f/12f);
         
         Destroy(gameObject);
+    }
+
+    public IEnumerator Explode()
+    {
+        yield return new WaitForSeconds(2f);
+        manager.GenerateExplosion(this);
+        yield return Pop();
     }
 }

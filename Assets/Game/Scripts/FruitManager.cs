@@ -28,6 +28,14 @@ public class FruitManager : MonoBehaviour
     private float pomuChance = 5f;
     [SerializeField]
     private TMP_Text buildNumberText;
+    [SerializeField]
+    private GameObject explosionFruit;
+    [SerializeField]
+    private float explosionChance = 5f;
+    [SerializeField]
+    private GameObject explosion;
+    [SerializeField]
+    private float explosionPower = 1000f;
 
     public int totalScore = 0;
     
@@ -76,6 +84,14 @@ public class FruitManager : MonoBehaviour
                     nextFruit = ratFruit;
                 }
             }
+            else if (nextFruit.GetComponent<Fruit>().level == 3)
+            {
+                // 5% grenade Chance
+                if (explosionChance > Random.Range(0f, 100f))
+                {
+                    nextFruit = explosionFruit;
+                }
+            }
             
         }
         nextNextFruit = fruitList[Random.Range(0, maxFruit)];
@@ -85,6 +101,14 @@ public class FruitManager : MonoBehaviour
             if (ratChance > Random.Range(0f, 100f))
             {
                 nextNextFruit = ratFruit;
+            }
+        }
+        else if (nextNextFruit.GetComponent<Fruit>().level == 3)
+        {
+            // 5% grenade Chance
+            if (explosionChance > Random.Range(0f, 100f))
+            {
+                nextNextFruit = explosionFruit;
             }
         }
     }
@@ -103,7 +127,32 @@ public class FruitManager : MonoBehaviour
     {
         return nextNextFruit;
     }
-    
+    public void GenerateExplosion(Fruit fruit)
+    {
+        StartCoroutine(GenerateExplosionCR(fruit));
+    }
+    public IEnumerator GenerateExplosionCR(Fruit fruit)
+    {
+        var newExplosion = Instantiate(explosion);
+        newExplosion.transform.position = fruit.transform.position;
+
+        yield return null;
+        Collider2D[] colliders = new Collider2D[20];
+        int numColliders = Physics2D.OverlapCircleNonAlloc(newExplosion.transform.position, 100.0f, colliders);
+        for(int i = 0; i < numColliders; i++)
+        {
+            var newCollider = colliders[i];
+            Debug.Log(newCollider);
+            if (newCollider == null) continue;
+            Vector3 forceAngle = (newCollider.transform.position - newExplosion.transform.position).normalized;
+            if(newCollider.attachedRigidbody != null)
+                newCollider.attachedRigidbody.AddForce(forceAngle * explosionPower);
+        }
+
+        yield return new WaitForSeconds(1f);
+        Destroy(newExplosion);
+    }
+
     public IEnumerator GenerateFruitCR(Fruit fruit1, Fruit fruit2)
     {
         if (fruit1.level != fruit2.level) yield break;
