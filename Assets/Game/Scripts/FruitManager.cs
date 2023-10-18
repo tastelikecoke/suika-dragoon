@@ -33,6 +33,8 @@ public class FruitManager : MonoBehaviour
     [SerializeField]
     private float explosionChance = 5f;
     [SerializeField]
+    private AudioSource explosionSource;
+    [SerializeField]
     private GameObject explosion;
     [SerializeField]
     private float explosionPower = 1000f;
@@ -142,13 +144,13 @@ public class FruitManager : MonoBehaviour
         for(int i = 0; i < numColliders; i++)
         {
             var newCollider = colliders[i];
-            Debug.Log(newCollider);
             if (newCollider == null) continue;
             Vector3 forceAngle = (newCollider.transform.position - newExplosion.transform.position).normalized;
             if(newCollider.attachedRigidbody != null)
                 newCollider.attachedRigidbody.AddForce(forceAngle * explosionPower);
         }
 
+        explosionSource.Play();
         yield return new WaitForSeconds(1f);
         Destroy(newExplosion);
     }
