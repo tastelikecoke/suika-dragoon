@@ -108,6 +108,12 @@ public class Fruit : MonoBehaviour
 
     public IEnumerator Explode()
     {
+        var animator = GetComponent<Animator>();
+        if (animator)
+        {
+            animator.enabled = true;
+            animator.SetTrigger("Ohno");
+        }
         yield return new WaitForSeconds(2f);
         manager.GenerateExplosion(this);
         yield return Pop();
