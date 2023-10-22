@@ -188,11 +188,11 @@ public class FruitManager : MonoBehaviour
         }
         if (fruit1.level + 1 == 7)
         {
-            // 5% pomu Chance
+            // 5% rosebud Chance
             if (rosebudChance > Random.Range(0f, 100f))
             {
                 spawningFruit = rosebudFruit;
-                pomuAudioSource.Play();
+                rosebudAudioSource.Play();
             }
         }
         var newFruit = Instantiate(spawningFruit, fruitRoot);

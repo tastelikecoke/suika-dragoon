@@ -2147,7 +2147,7 @@ MonoBehaviour:
   explosionSource: {fileID: 489368330}
   explosion: {fileID: 2053978647959197256, guid: 91b114b20c550ca4683b9c8eb6f89875, type: 3}
   explosionPower: 1000
-  rosebudAudioSource: {fileID: 0}
+  rosebudAudioSource: {fileID: 1113130154}
   rosebudFruit: {fileID: 78220219139644148, guid: f96b5b9f8295cfd409ff7fdbbbcf5aa2, type: 3}
   rosebudChance: 5
   totalScore: 1
