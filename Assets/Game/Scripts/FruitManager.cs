@@ -28,7 +28,7 @@ public class FruitManager : MonoBehaviour
     private float pomuChance = 5f;
     [SerializeField]
     private TMP_Text buildNumberText;
-    [SerializeField]
+    [SerializeField, Header("Grenade")]
     private GameObject explosionFruit;
     [SerializeField]
     private float explosionChance = 5f;
@@ -38,6 +38,12 @@ public class FruitManager : MonoBehaviour
     private GameObject explosion;
     [SerializeField]
     private float explosionPower = 1000f;
+    [SerializeField, Header("Rosebuds")]
+    private AudioSource rosebudAudioSource;
+    [SerializeField]
+    private GameObject rosebudFruit;
+    [SerializeField]
+    private float rosebudChance = 5f;
 
     public int totalScore = 0;
     
@@ -177,6 +183,15 @@ public class FruitManager : MonoBehaviour
             if (pomuChance > Random.Range(0f, 100f))
             {
                 spawningFruit = pomuFruit;
+                pomuAudioSource.Play();
+            }
+        }
+        if (fruit1.level + 1 == 7)
+        {
+            // 5% pomu Chance
+            if (rosebudChance > Random.Range(0f, 100f))
+            {
+                spawningFruit = rosebudFruit;
                 pomuAudioSource.Play();
             }
         }

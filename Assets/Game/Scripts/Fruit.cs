@@ -11,6 +11,7 @@ public class Fruit : MonoBehaviour
     public bool isTouched = true;
     public bool isRat = false;
     public bool isExplosive = false;
+    public bool isRosebud = false;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class Fruit : MonoBehaviour
             animator.enabled = false;
         }
     }
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
         // do not execute if on retry.
