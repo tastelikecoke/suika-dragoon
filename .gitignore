@@ -73,3 +73,7 @@ crashlytics-build.properties
 
 /.idea
 /.idea/
+
+/[Aa]ssets/Firebase/
+/[Aa]ssets/Plugins/
+
