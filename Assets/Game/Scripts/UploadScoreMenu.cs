@@ -22,8 +22,8 @@ public class UploadScoreMenu : MonoBehaviour
         var rawRegex = badWords.Split("\n");
         for (int i = 0; i < rawRegex.Length; i++)
         {
-            Debug.Log(rawRegex[i]);
-            if (Regex.Match(word, rawRegex[i]).Success)
+            var pattern = new Regex(rawRegex[i], RegexOptions.IgnorePatternWhitespace | RegexOptions.IgnoreCase);
+            if (pattern.IsMatch(word))
             {
                 return true;
             }
