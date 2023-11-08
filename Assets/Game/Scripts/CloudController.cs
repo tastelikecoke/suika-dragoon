@@ -64,6 +64,7 @@ public class CloudController : MonoBehaviour
     {
         // do not execute if on retry.
         if (fruitManager.isFailed) return;
+        if (fruitManager.dontFallFirst) return;
 
         var rb = GetComponent<Rigidbody2D>();
         var horizontalInput = Input.GetAxis("Horizontal");
@@ -77,6 +78,8 @@ public class CloudController : MonoBehaviour
 
     public void UpdateMouse()
     {
+        if (fruitManager.dontFallFirst) return;
+        
         var rb = GetComponent<Rigidbody2D>();
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -86,7 +89,8 @@ public class CloudController : MonoBehaviour
     {
         // do not execute if on retry.
         if (fruitManager.isFailed) return;
-    
+        if (fruitManager.dontFallFirst) return;
+
         if (equippedFruit == null || equippedFruit.GetComponent<Fruit>().isTouched)
         {
             EquipNextFruit();

@@ -51,6 +51,7 @@ public class FruitManager : MonoBehaviour
     private GameObject nextNextFruit;
     
     public bool isFailed = false;
+    public bool dontFallFirst = false;
     public bool isUploadedAlready = false;
     public Texture2D screenshot = null;
 
@@ -59,14 +60,15 @@ public class FruitManager : MonoBehaviour
     {
         buildNumberText.text = Application.version;
         Retry();
+        AssignNextFruit();
     }
     
     public void Retry()
     {
         totalScore = 0;
-        isFailed = false;
         isUploadedAlready = false;
-        AssignNextFruit();
+        dontFallFirst = true;
+        isFailed = false;
 
         if (fruitRoot.childCount > 0)
         {
@@ -75,6 +77,13 @@ public class FruitManager : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
+        StartCoroutine(WaitTilStartCR());
+    }
+
+    public IEnumerator WaitTilStartCR()
+    {
+        yield return new WaitForSeconds(0.5f);
+        dontFallFirst = false;
     }
     
     public void AssignNextFruit()
