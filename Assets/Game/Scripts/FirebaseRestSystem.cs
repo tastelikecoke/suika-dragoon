@@ -48,7 +48,7 @@ public class FirebaseRestSystem : MonoBehaviour
 
     public void GetTopScores(Action<DatabaseResponse<string>> callback)
     {
-        var uri = $"https://{databaseName}.firebaseio.com/{rootNode}.json?orderBy=\"score\"&limitToLast=3";
+        var uri = $"https://{databaseName}.firebaseio.com/{rootNode}.json?orderBy=\"score\"&limitToLast=3&endAt=4000";
         
         RestClient.Get(uri)
             .Then(
