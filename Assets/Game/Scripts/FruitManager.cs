@@ -51,6 +51,7 @@ public class FruitManager : MonoBehaviour
     private GameObject nextNextFruit;
     
     public bool isFailed = false;
+    public bool isUploadedAlready = false;
     public Texture2D screenshot = null;
 
 
@@ -64,6 +65,7 @@ public class FruitManager : MonoBehaviour
     {
         totalScore = 0;
         isFailed = false;
+        isUploadedAlready = false;
         AssignNextFruit();
 
         if (fruitRoot.childCount > 0)

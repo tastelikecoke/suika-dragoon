@@ -53,6 +53,9 @@ public class RetryMenu : MonoBehaviour
     }
     public void Update()
     {
+        if (uploadScoreMenu.GetComponent<Canvas>().enabled)
+            return;
+        
         if (GetComponent<Canvas>().enabled)
         {
             if (Input.GetButtonDown("Submit"))

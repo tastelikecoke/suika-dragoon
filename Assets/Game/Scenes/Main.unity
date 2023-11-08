@@ -2315,6 +2315,7 @@ MonoBehaviour:
   rosebudChance: 5
   totalScore: 1
   isFailed: 0
+  isUploadedAlready: 0
   screenshot: {fileID: 0}
 --- !u!1 &324216920
 GameObject:
@@ -12523,6 +12524,10 @@ MonoBehaviour:
   _fruitManager: {fileID: 323314690}
   inputField: {fileID: 1580303266}
   waitText: {fileID: 715067835}
+  badWords: "^[a@][s\\$][s\\$]$\r\n[a@][s\\$][s\\$]h[o0][l1][e3][s\\$]?\r\nb[a@][s\\$][t\\+][a@]rd
+    \r\nb[e3][a@][s\\$][t\\+][i1][a@]?[l1]([i1][t\\+]y)?\r\nb[e3][a@][s\\$][t\\+][i1][l1][i1][t\\+]y\r\nb[e3][s\\$][t\\+][i1][a@][l1]([i1][t\\+]y)?\r\nb[i1][t\\+]ch[s\\$]?\r\nb[i1][t\\+]ch[e3]r[s\\$]?\r\nb[i1][t\\+]ch[e3][s\\$]\r\nb[i1][t\\+]ch[i1]ng?\r\nb[l1][o0]wj[o0]b[s\\$]?\r\nc[l1][i1][t\\+]\r\n^(c|k|ck|q)[o0](c|k|ck|q)[s\\$]?$\r\n(c|k|ck|q)[o0](c|k|ck|q)[s\\$]u\r\n(c|k|ck|q)[o0](c|k|ck|q)[s\\$]u(c|k|ck|q)[e3]d
+    \r\n(c|k|ck|q)[o0](c|k|ck|q)[s\\$]u(c|k|ck|q)[e3]r\r\n(c|k|ck|q)[o0](c|k|ck|q)[s\\$]u(c|k|ck|q)[i1]ng\r\n(c|k|ck|q)[o0](c|k|ck|q)[s\\$]u(c|k|ck|q)[s\\$]\r\n^cum[s\\$]?$\r\ncumm??[e3]r\r\ncumm?[i1]ngcock\r\n(c|k|ck|q)um[s\\$]h[o0][t\\+]\r\n(c|k|ck|q)un[i1][l1][i1]ngu[s\\$]\r\n(c|k|ck|q)un[i1][l1][l1][i1]ngu[s\\$]\r\n(c|k|ck|q)unn[i1][l1][i1]ngu[s\\$]\r\n(c|k|ck|q)un[t\\+][s\\$]?\r\n(c|k|ck|q)un[t\\+][l1][i1](c|k|ck|q)\r\n(c|k|ck|q)un[t\\+][l1][i1](c|k|ck|q)[e3]r\r\n(c|k|ck|q)un[t\\+][l1][i1](c|k|ck|q)[i1]ng\r\ncyb[e3]r(ph|f)u(c|k|ck|q)\r\nd[a@]mn\r\nd[i1]ck\r\nd[i1][l1]d[o0]\r\nd[i1][l1]d[o0][s\\$]\r\nd[i1]n(c|k|ck|q)\r\nd[i1]n(c|k|ck|q)[s\\$]\r\n[e3]j[a@]cu[l1]\r\n(ph|f)[a@]g[s\\$]?\r\n(ph|f)[a@]gg[i1]ng\r\n(ph|f)[a@]gg?[o0][t\\+][s\\$]?\r\n(ph|f)[a@]gg[s\\$]\r\n(ph|f)[e3][l1][l1]?[a@][t\\+][i1][o0]\r\n(ph|f)u(c|k|ck|q)\r\n(ph|f)u(c|k|ck|q)[s\\$]?\r\ng[a@]ngb[a@]ng[s\\$]?\r\ng[a@]ngb[a@]ng[e3]d\r\ng[a@]y\r\nh[o0]m?m[o0]\r\nh[o0]rny\r\nj[a@](c|k|ck|q)\\-?[o0](ph|f)(ph|f)?\r\nj[e3]rk\\-?[o0](ph|f)(ph|f)?\r\nj[i1][s\\$z][s\\$z]?m?\r\n[ck][o0]ndum[s\\$]?\r\nmast(e|ur)b(8|ait|ate)\r\nn+[i1]+[gq]+[e3]*r+[s\\$]*\r\n[o0]rg[a@][s\\$][i1]m[s\\$]?\r\n[o0]rg[a@][s\\$]m[s\\$]?\r\np[e3]nn?[i1][s\\$]\r\np[i1][s\\$][s\\$]\r\np[i1][s\\$][s\\$][o0](ph|f)(ph|f)
+    \r\np[o0]rn\r\np[o0]rn[o0][s\\$]?\r\np[o0]rn[o0]gr[a@]phy\r\npr[i1]ck[s\\$]?\r\npu[s\\$][s\\$][i1][e3][s\\$]\r\npu[s\\$][s\\$]y[s\\$]?\r\n[s\\$][e3]x\r\n[s\\$]h[i1][t\\+][s\\$]?\r\n[s\\$][l1]u[t\\+][s\\$]?\r\n[s\\$]mu[t\\+][s\\$]?\r\n[s\\$]punk[s\\$]?\r\n[t\\+]w[a@][t\\+][s\\$]?"
 --- !u!1 &1773783161
 GameObject:
   m_ObjectHideFlags: 0

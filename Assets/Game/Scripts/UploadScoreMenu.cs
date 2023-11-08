@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class UploadScoreMenu : MonoBehaviour
 {
@@ -13,6 +14,22 @@ public class UploadScoreMenu : MonoBehaviour
     [SerializeField]
     private TMP_Text waitText;
     private FruitManager manager;
+    [SerializeField, TextArea]
+    private string badWords;
+
+    public bool IsBadWord(string word)
+    {
+        var rawRegex = badWords.Split("\n");
+        for (int i = 0; i < rawRegex.Length; i++)
+        {
+            Debug.Log(rawRegex[i]);
+            if (Regex.Match(word, rawRegex[i]).Success)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     
     public void PressUpload()
     {
@@ -23,8 +40,22 @@ public class UploadScoreMenu : MonoBehaviour
         if (manager != null)
         {
             var value = inputField.text;
+
+            if (IsBadWord(value))
+            {
+                waitText.text = "Invalid name.";
+                return;
+            }
+
+            if (manager.isUploadedAlready)
+            {
+                waitText.text = "Already uploaded.";
+                return;
+            }
+            
             FirebaseRestSystem.Instance.AddScore(value, manager.totalScore, dbr =>
             {
+                manager.isUploadedAlready = true;
                 waitText.text = "Done!";
             });
         }
