@@ -54,7 +54,6 @@ public class FirebaseRestSystem : MonoBehaviour
             .Then(
                 response =>
                 {
-                    Debug.Log(response.Text);
                     ScoreEntries.Clear();
                     Dictionary<string, object> rawScoreEntries = (Dictionary<string, object>)Json.Deserialize(response.Text);
                     foreach (var kv in rawScoreEntries)
@@ -67,6 +66,7 @@ public class FirebaseRestSystem : MonoBehaviour
                         Int32.TryParse(entry["score"].ToString(), out formattedEntry.score);
                         ScoreEntries.Add(formattedEntry);
                     }
+                    ScoreEntries.Sort((a, b) => a.score - b.score);
                     var dbr = new DatabaseResponse<string>();
                     dbr.response = response.Text;
                     callback?.Invoke(dbr);
@@ -83,12 +83,12 @@ public class FirebaseRestSystem : MonoBehaviour
             .Done();
     }
 
-    private void AddScore(string name, int score, Action<DatabaseResponse<Dictionary<string, object>>> callback)
+    public void AddScore(string name, int score, Action<DatabaseResponse<Dictionary<string, object>>> callback)
     {
         var pushID = FirebasePushIDGenerator.GeneratePushID();
         var uri = $"https://{databaseName}.firebaseio.com/{rootNode}/{pushID}.json";
 
-        var jsonToStore = $"{{\"score\":\"{score}\", \"name\":\"{name}\"}}";
+        var jsonToStore = $"{{\"score\":{score}, \"name\":\"{name}\"}}";
         
         RestClient.Put<Dictionary<string, object>>(uri, jsonToStore)
             .Then(

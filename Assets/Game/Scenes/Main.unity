@@ -3987,7 +3987,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   databaseName: dragoon-drop-default-rtdb
   rootNode: scores
-  testText: {fileID: 0}
   ScoreEntries: []
 --- !u!1 &579146048
 GameObject:
@@ -6908,6 +6907,7 @@ MonoBehaviour:
   screenshot: {fileID: 822154780}
   highScoreText: {fileID: 182699212}
   normalText: {fileID: 1439379477}
+  uploadScoreMenu: {fileID: 1772422820}
   tada: {fileID: 314925642}
 --- !u!1 &1019948319
 GameObject:
@@ -7858,7 +7858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skip
+  m_text: Close
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
   m_sharedMaterial: {fileID: 6862948086684694721, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
@@ -12517,9 +12517,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1772422814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8f87c12cf9fd6640875d9520a7a0eb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f8bd98e319ec24429b1c76936521b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fruitManager: {fileID: 323314690}
+  inputField: {fileID: 1580303266}
+  waitText: {fileID: 715067835}
 --- !u!1 &1773783161
 GameObject:
   m_ObjectHideFlags: 0
