@@ -15,24 +15,28 @@ public class FirebaseRestSystem : MonoBehaviour
         public int score;
     }
     
+    public static FirebaseRestSystem Instance = null;
+    
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(this);
+        ScoreEntries = new List<ScoreEntry>();
+    }
+    
     [SerializeField]
     private string databaseName;
     [SerializeField]
     private string rootNode;
-    [SerializeField]
-    private TMP_Text testText;
 
-    [SerializeField]
-    private List<ScoreEntry> _scoreEntries;
+    public List<ScoreEntry> ScoreEntries;
     private void Start()
     {
-        _scoreEntries = new List<ScoreEntry>();
-        AddScore("Jimmy", 50, (dbr) =>
-        {
-            testText.text = _scoreEntries[0].name;
-        });
-        
-        GetTopScores((dbr) => {});
     }
     
     public struct DatabaseResponse<T>
@@ -42,7 +46,7 @@ public class FirebaseRestSystem : MonoBehaviour
         public T response;
     }
 
-    private void GetTopScores(Action<DatabaseResponse<string>> callback)
+    public void GetTopScores(Action<DatabaseResponse<string>> callback)
     {
         var uri = $"https://{databaseName}.firebaseio.com/{rootNode}.json?orderBy=\"score\"&limitToLast=3";
         
@@ -51,7 +55,7 @@ public class FirebaseRestSystem : MonoBehaviour
                 response =>
                 {
                     Debug.Log(response.Text);
-                    _scoreEntries.Clear();
+                    ScoreEntries.Clear();
                     Dictionary<string, object> rawScoreEntries = (Dictionary<string, object>)Json.Deserialize(response.Text);
                     foreach (var kv in rawScoreEntries)
                     {
@@ -61,7 +65,7 @@ public class FirebaseRestSystem : MonoBehaviour
                         ScoreEntry formattedEntry = new ScoreEntry();
                         formattedEntry.name = entry["name"].ToString(); 
                         Int32.TryParse(entry["score"].ToString(), out formattedEntry.score);
-                        _scoreEntries.Add(formattedEntry);
+                        ScoreEntries.Add(formattedEntry);
                     }
                     var dbr = new DatabaseResponse<string>();
                     dbr.response = response.Text;
