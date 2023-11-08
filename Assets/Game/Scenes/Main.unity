@@ -2732,6 +2732,7 @@ MonoBehaviour:
   rosebudChance: 5
   totalScore: 1
   isFailed: 0
+  dontFallFirst: 0
   isUploadedAlready: 0
   screenshot: {fileID: 0}
 --- !u!1 &324216920
@@ -6247,9 +6248,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 131716149}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27.999023, y: -157}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 932.001, y: -157}
   m_SizeDelta: {x: 418.70996, y: -1036.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886790313
@@ -14105,7 +14106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1207, y: 1.5150146}
+  m_AnchoredPosition: {x: 1207, y: 1.5151367}
   m_SizeDelta: {x: 1241.99, y: -4.029999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1869325383
