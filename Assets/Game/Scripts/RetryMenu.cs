@@ -15,6 +15,8 @@ public class RetryMenu : MonoBehaviour
     [SerializeField]
     private GameObject normalText;
     [SerializeField]
+    private UploadScoreMenu uploadScoreMenu;
+    [SerializeField]
     private AudioSource tada;
     public void PressRetry()
     {
@@ -29,6 +31,10 @@ public class RetryMenu : MonoBehaviour
     public void PressReturnToTitle()
     {
         SceneManager.LoadScene("Launcher");
+    }
+    public void PressUploadScore()
+    {
+        uploadScoreMenu.Show();
     }
 
     public void Show(bool isHighScore = false)
@@ -56,7 +62,7 @@ public class RetryMenu : MonoBehaviour
             
             if (Input.GetButtonDown("Cancel"))
             {
-                PressReturnToTitle();
+                PressRetry();
             }
         }
         

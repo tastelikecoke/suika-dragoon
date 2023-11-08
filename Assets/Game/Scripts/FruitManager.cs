@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Firebase.Database;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -212,6 +213,11 @@ public class FruitManager : MonoBehaviour
         if (GameSystem.Instance != null)
         {
             GameSystem.Instance.UploadLocalScore(totalScore);
+        }
+
+        if (FirebaseSystem.Instance != null)
+        {
+            FirebaseSystem.Instance.alreadyUploaded = false;
         }
 
         yield return new WaitForEndOfFrame();
