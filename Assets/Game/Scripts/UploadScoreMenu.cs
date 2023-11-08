@@ -19,6 +19,8 @@ public class UploadScoreMenu : MonoBehaviour
 
     public bool IsBadWord(string word)
     {
+        if (word.Length < 2) return true;
+        
         var rawRegex = badWords.Split("\n");
         for (int i = 0; i < rawRegex.Length; i++)
         {

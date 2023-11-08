@@ -59,7 +59,6 @@ public class FirebaseRestSystem : MonoBehaviour
                     foreach (var kv in rawScoreEntries)
                     {
                         Dictionary<string, object> entry = (Dictionary<string, object>)kv.Value;
-                        Debug.Log(entry);
 
                         ScoreEntry formattedEntry = new ScoreEntry();
                         formattedEntry.name = entry["name"].ToString(); 

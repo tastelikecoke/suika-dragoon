@@ -21,7 +21,7 @@ public class FirebaseRestScoreboard : MonoBehaviour
         Refresh();
     }
 
-    private void Refresh()
+    public void Refresh()
     {
         FirebaseRestSystem.Instance.GetTopScores(dbr =>
         {
