@@ -10,7 +10,7 @@ public class UploadScoreMenu : MonoBehaviour
     [SerializeField]
     private FruitManager _fruitManager;
     [SerializeField]
-    private TMP_InputField inputField;
+    private InputField inputField;
     [SerializeField]
     private TMP_Text waitText;
     private FruitManager manager;
