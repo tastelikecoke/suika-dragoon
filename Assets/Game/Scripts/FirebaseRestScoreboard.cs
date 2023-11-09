@@ -45,7 +45,9 @@ public class FirebaseRestScoreboard : MonoBehaviour
                 thirdDisplay.Populate(3, scores[^3].score, scores[^3].name);
             }
         });
-        
+    }
+    private void Update()
+    {
         if (manager == null)
             manager = FindObjectOfType<FruitManager>();
         
