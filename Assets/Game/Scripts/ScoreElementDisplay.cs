@@ -29,6 +29,7 @@ public class ScoreElementDisplay : MonoBehaviour
     {
         this.score.text = "----";
         this.rank.text = "--";
-        this.playerName.text = "---";
+        if(this.playerName)
+            this.playerName.text = "---";
     }
 }
