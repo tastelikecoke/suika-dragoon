@@ -44,6 +44,12 @@ public class FruitManager : MonoBehaviour
     private GameObject rosebudFruit;
     [SerializeField]
     private float rosebudChance = 5f;
+    [SerializeField, Header("Pentomos")]
+    private AudioSource pentomoAudioSource;
+    [SerializeField]
+    private GameObject pentomoFruit;
+    [SerializeField]
+    private float pentomoChance = 5f;
 
     public int totalScore = 0;
     
@@ -204,6 +210,15 @@ public class FruitManager : MonoBehaviour
             {
                 spawningFruit = rosebudFruit;
                 rosebudAudioSource.Play();
+            }
+        }
+        if (fruit1.level + 1 == 8)
+        {
+            // 5% rosebud Chance
+            if (pentomoChance > Random.Range(0f, 100f))
+            {
+                spawningFruit = pentomoFruit;
+                pentomoAudioSource.Play();
             }
         }
         var newFruit = Instantiate(spawningFruit, fruitRoot);
