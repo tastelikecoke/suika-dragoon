@@ -50,6 +50,8 @@ public class FruitManager : MonoBehaviour
     private GameObject pentomoFruit;
     [SerializeField]
     private float pentomoChance = 5f;
+    [SerializeField, Header("Sewen")]
+    private AudioSource ididitAudioSource;
 
     public int totalScore = 0;
     
@@ -221,6 +223,12 @@ public class FruitManager : MonoBehaviour
                 pentomoAudioSource.Play();
             }
         }
+
+        if (fruit1.level + 1 == 11)
+        {
+            ididitAudioSource.Play();
+        }
+
         var newFruit = Instantiate(spawningFruit, fruitRoot);
         newFruit.transform.position = Vector3.Lerp(fruit1.transform.position, fruit2.transform.position, 0.5f);
         newFruit.GetComponent<Fruit>().manager = this;
