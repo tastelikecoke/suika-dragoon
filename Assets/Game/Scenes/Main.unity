@@ -206,10 +206,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 931806873}
     m_Modifications:
-    - target: {fileID: 1352217334747575786, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 13.294029
-      objectReference: {fileID: 0}
     - target: {fileID: 1378684440782773455, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -293,18 +289,6 @@ PrefabInstance:
     - target: {fileID: 6300401044661871112, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_Name
       value: Global Board Rank
-      objectReference: {fileID: 0}
-    - target: {fileID: 6589838194218049148, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 88.45999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8099202957789449248, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 13.299995
-      objectReference: {fileID: 0}
-    - target: {fileID: 8765787622886589919, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -18.599998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11168,7 +11152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49.92, y: 222.50996}
+  m_AnchoredPosition: {x: -8, y: 222.51}
   m_SizeDelta: {x: 418.71, y: 43.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1385611846
