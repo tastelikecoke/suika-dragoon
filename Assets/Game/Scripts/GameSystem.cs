@@ -1,63 +1,78 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class GameSystem : MonoBehaviour
+namespace tastelikecoke.PanMachine
 {
-    public List<int> localScores;
-    public AudioSource bgm;
-
-    public static GameSystem Instance = null;
-    private void Awake()
+    /// <summary>
+    /// Script to keep track of the score for every scene. Also maintains the BGM instance
+    /// </summary>
+    public class GameSystem : MonoBehaviour
     {
-        if (Instance != null)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
+        public List<int> localScores;
+        
+        public AudioMixerSnapshot unmuteSnapshot;
+        public AudioMixerSnapshot muteSnapshot;
+        public bool isMute = false;
+        public Action OnMuteChanged;
 
-        Instance = this;
-        string storedScores = PlayerPrefs.GetString("dragoon_drop_save_file_for_local_ranking", null);
-        localScores = new List<int>();
-        if (!string.IsNullOrEmpty(storedScores))
+        /// <summary> original name is from Dragoon Drop release </summary>
+        public const string SaveFileForLocalRankingKey = "dragoon_drop_save_file_for_local_ranking";
+        
+        public static GameSystem Instance = null;
+        
+        private void Awake()
         {
-            var scores = storedScores.Split(" ");
-            foreach(var score in scores)
+            if (Instance != null)
             {
-                int newScore = 0;
-                Int32.TryParse(score, out newScore);
-                if (newScore != 0)
+                Destroy(this.gameObject);
+                return;
+            }
+
+            Instance = this;
+            string storedScores = PlayerPrefs.GetString(SaveFileForLocalRankingKey, null);
+            localScores = new List<int>();
+            if (!string.IsNullOrEmpty(storedScores))
+            {
+                var scores = storedScores.Split(" ");
+                foreach(var score in scores)
                 {
-                    localScores.Add(newScore);
+                    int newScore = 0;
+                    Int32.TryParse(score, out newScore);
+                    if (newScore != 0)
+                    {
+                        localScores.Add(newScore);
+                    }
                 }
             }
+            DontDestroyOnLoad(this);
         }
-        DontDestroyOnLoad(this);
-    }
 
-    public void UploadLocalScore(int score)
-    {
-        localScores.Add(score);
-        localScores.Sort();
-
-        string storedScore = "";
-        foreach(var scoreInt in localScores)
+        public void UploadLocalScore(int score)
         {
-            if (storedScore == "") storedScore = scoreInt.ToString();
-            else storedScore = storedScore + " " + scoreInt.ToString();
+            localScores.Add(score);
+            localScores.Sort();
+
+            string storedScore = "";
+            foreach(var scoreInt in localScores)
+            {
+                if (storedScore == "") storedScore = scoreInt.ToString();
+                else storedScore = storedScore + " " + scoreInt.ToString();
+            }
+
+            PlayerPrefs.SetString(SaveFileForLocalRankingKey, storedScore);
+            PlayerPrefs.Save();
         }
 
-        PlayerPrefs.SetString("dragoon_drop_save_file_for_local_ranking", storedScore);
-        PlayerPrefs.Save();
-    }
+        public int GetLocalRank(int score)
+        {
+            var result = localScores.BinarySearch(score);
+            if (result < 0) return localScores.Count + 1 - (~result);
+            return localScores.Count - result + 1;
+        }
 
-    public int GetLocalRank(int score)
-    {
-        var result = localScores.BinarySearch(score);
-        if (result < 0) return localScores.Count + 1 - (~result);
-        return localScores.Count - result + 1;
     }
 
 }

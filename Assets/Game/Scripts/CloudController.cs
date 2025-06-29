@@ -1,137 +1,164 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class CloudController : MonoBehaviour
+namespace tastelikecoke.PanMachine
 {
-    [SerializeField]
-    private float forceMultiplier = 3f;
-    [SerializeField]
-    private Transform fruitRoot;
-    [SerializeField]
-    private Transform fruitContainer;
-    [SerializeField]
-    private Transform constrainedFruit;
-    [SerializeField]
-    private Transform nextNextFruitRoot;
-    [SerializeField]
-    private FruitManager fruitManager;
-    [SerializeField]
-    private Vector3 tilt;
-    [SerializeField]
-    private bool isDebugOn = false;
-    [SerializeField]
-    private AudioSource audioSource;
-    [SerializeField]
-    private bool isPointerHovering = false;
-    [SerializeField]
-    private bool isPointerClicked = false;
-    [SerializeField]
-    private PauseMenu pauseMenu;
-
-    private GameObject equippedFruit = null;
-    private GameObject equippedNextNextFruit = null;
-
-    public void SetPointerHover(bool value)
+    /// <summary>
+    /// Handles spawning the fruits. Also controls the tongs (aka "Cloud")
+    /// Represents the cloud in the original Suika Game.
+    /// </summary>
+    public class CloudController : MonoBehaviour
     {
-        isPointerHovering = value;
-    }
-    public void SetPointerClick(bool value)
-    {
-        isPointerClicked = value;
-    }
-    private void EquipNextFruit()
-    {
-        var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitContainer);
-        newFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        newFruit.GetComponent<CircleCollider2D>().enabled = false;
-        newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
-        equippedFruit = newFruit;
-        fruitManager.CheckRatEquipped();
-        
-        Destroy(equippedNextNextFruit);
-        
-        equippedNextNextFruit = Instantiate(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
-        equippedNextNextFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        equippedNextNextFruit.GetComponent<CircleCollider2D>().enabled = false;
-        
-    }
+        [Header("Fruit Settings")]
+        [SerializeField]
+        private Transform fruitRoot;
+        [SerializeField]
+        private Transform fruitContainer;
+        [SerializeField]
+        private Transform constrainedFruit;
+        [SerializeField]
+        private Transform nextNextFruitRoot;
+        [SerializeField]
+        private FruitManager fruitManager;
+        [SerializeField]
+        private FruitPool fruitPool;
 
-    private void FixedUpdate()
-    {
-        // do not execute if on retry.
-        if (fruitManager.isFailed) return;
-        if (fruitManager.dontFallFirst) return;
+        [Header("Physics Settings")]
+        [SerializeField]
+        private Vector3 tilt;
+        [SerializeField]
+        private float forceMultiplier = 3f;
+        [SerializeField]
+        private bool isDebugOn = false;
+        [SerializeField]
+        private Rigidbody2D rigidbody2d = null;
 
-        var rb = GetComponent<Rigidbody2D>();
-        var horizontalInput = Input.GetAxis("Horizontal");
-        rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
+        [Header("UI")]
+        [SerializeField]
+        private AudioSource audioSource;
+        [SerializeField]
+        private PauseMenu pauseMenu;
 
-        if (isPointerHovering)
+        /* Controller values */
+        private bool _isPointerHovering = false;
+        private bool _isPointerClicked = false;
+        private GameObject _equippedFruit = null;
+        private GameObject _equippedNextNextFruit = null;
+
+        public void SetPointerHover(bool value)
         {
-            UpdateMouse();
+            _isPointerHovering = value;
         }
-    }
-
-    public void UpdateMouse()
-    {
-        if (fruitManager.dontFallFirst) return;
-        
-        var rb = GetComponent<Rigidbody2D>();
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
-    }
-    private void Update()
-    {
-        // do not execute if on retry.
-        if (fruitManager.isFailed) return;
-        if (fruitManager.dontFallFirst) return;
-
-        if (equippedFruit == null || equippedFruit.GetComponent<Fruit>().isTouched)
+        public void SetPointerClick(bool value)
         {
-            EquipNextFruit();
+            _isPointerClicked = value;
         }
-
-        if (Input.GetButtonDown("Fire2") && GameSystem.Instance != null)
+        private void EquipNextFruit()
         {
-            GameSystem.Instance.bgm.mute = !GameSystem.Instance.bgm.mute;
-        }
-        
-        if (Input.GetButtonDown("Cancel") && !pauseMenu.GetComponent<Canvas>().enabled && !fruitManager.retryMenu.GetComponent<Canvas>().enabled)
-        {
-            StartCoroutine(pauseMenu.ShowCR());
-        }
-
-        var fireInput = isPointerClicked || Input.GetButtonDown("Submit");
-        if (fireInput && fruitContainer.childCount > 0)
-        {
-            var equippedRotation = equippedFruit.transform.rotation;
-            Destroy(equippedFruit);
+            if (_equippedNextNextFruit != null)
+            {
+                _equippedNextNextFruit.GetComponent<Fruit>().Hide();
+                _equippedNextNextFruit = null;
+            }
             
-            var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
-            /* add jitter */
-            newFruit.transform.position = constrainedFruit.position + (Vector3)(Random.insideUnitCircle * 0.01f);
-            newFruit.transform.rotation = equippedRotation;
-            newFruit.GetComponent<Fruit>().manager = fruitManager;
+            var newFruit = fruitPool.GetObject(fruitManager.GetNextFruit(), fruitContainer);
+            var newFruitScript = newFruit.GetComponent<Fruit>();
+            newFruitScript.SetAsNonMoving();
             
-            if(!audioSource.isPlaying)
-                audioSource.Play();
+            newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
+            _equippedFruit = newFruit;
+            fruitManager.CheckRatEquipped();
+
+            _equippedNextNextFruit = fruitPool.GetObject(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
             
-            //follow velocity. Just don't lol. funny though
-            //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
-            equippedFruit = newFruit;
-            // set this to allow spam
+            var equippedNextNextFruitScript = _equippedNextNextFruit.GetComponent<Fruit>();
+            equippedNextNextFruitScript.SetAsNonMoving();
+        }
+
+        private void FixedUpdate()
+        {
+            // do not execute if on retry.
+            if (fruitManager.isFailed) return;
+            if (fruitManager.dontFallFirst) return;
+
+            var horizontalInput = Input.GetAxis("Horizontal");
+            rigidbody2d.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
+
+            if (_isPointerHovering)
+            {
+                UpdateMouse();
+            }
+        }
+
+        public void UpdateMouse()
+        {
+            if (fruitManager.dontFallFirst) return;
+
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
+        }
+        private void Update()
+        {
+            // do not execute if on retry.
+            if (fruitManager.isFailed)
+            {
+                _isPointerClicked = false;
+                return;
+            }
+            
+            if (fruitManager.dontFallFirst) return;
+
+            if (_equippedFruit == null || _equippedFruit.GetComponent<Fruit>().isTouched || _equippedFruit.GetComponent<Fruit>().isHidden)
+            {
+                EquipNextFruit();
+            }
+
+            if (Input.GetButtonDown("Fire2") && GameSystem.Instance != null)
+            {
+                GameSystem.Instance.isMute = !GameSystem.Instance.isMute;
+                GameSystem.Instance.OnMuteChanged?.Invoke();
+            }
+
+            if (Input.GetButtonDown("Cancel") && !pauseMenu.GetComponent<Canvas>().enabled && !fruitManager.retryMenu.GetComponent<Canvas>().enabled)
+            {
+                StartCoroutine(pauseMenu.ShowCR());
+            }
+
+            var fireInput = _isPointerClicked || Input.GetButtonDown("Submit");
+            if (fireInput && fruitContainer.childCount > 0)
+            {
+                var equippedRotation = _equippedFruit.transform.rotation;
+                if (_equippedFruit != null)
+                {
+                    _equippedFruit.GetComponent<Fruit>().Hide();
+                    _equippedFruit = null;
+                }
+
+
+                var newFruit = fruitPool.GetObject(fruitManager.GetNextFruit(), fruitRoot);
+                /* add jitter */
+                newFruit.transform.position = constrainedFruit.position + (Vector3)(Random.insideUnitCircle * 0.01f);
+                newFruit.transform.rotation = equippedRotation;
+                newFruit.GetComponent<Fruit>().manager = fruitManager;
+
+                if (!audioSource.isPlaying)
+                    audioSource.Play();
+
+                //Follow velocity of cloud to the fruit would be funny. Disabling this for prod.
+                //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
+                
+                _equippedFruit = newFruit;
+                
 #if UNITY_EDITOR
-            if(isDebugOn)
-                equippedFruit.GetComponent<Fruit>().isTouched = true;
+                // set this to allow spam
+                if (isDebugOn)
+                    _equippedFruit.GetComponent<Fruit>().isTouched = true;
 #endif
-            fruitManager.AssignNextFruit();
-        }
+                fruitManager.AssignNextFruit();
+            }
 
-        isPointerClicked = false;
+            _isPointerClicked = false;
+        }
     }
 }

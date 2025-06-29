@@ -162,8 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34fd657a06df5684a910d95d092b7236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 8
   manager: {fileID: 0}
+  fruitID: dragoon8
+  level: 8
   isPopping: 0
   isTouched: 0
   isRat: 0
