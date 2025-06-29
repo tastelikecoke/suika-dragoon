@@ -781,8 +781,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next Dragoon
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bde4c84c6eed8af41ab4609120102e95, type: 2}
-  m_sharedMaterial: {fileID: 3896573779309668136, guid: bde4c84c6eed8af41ab4609120102e95, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c3b2b124aa00da14e9955107c0be3126, type: 2}
+  m_sharedMaterial: {fileID: 3896573779309668136, guid: c3b2b124aa00da14e9955107c0be3126, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -15097,15 +15097,15 @@ MonoBehaviour:
   m_text: 'Arrow Keys: Move / Space: Drop / LAlt: Sound / Esc: Pause    Mouse: Move
     / Left Click: Drop / Speaker Button / Pause Button'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f1d1925596657442a33023dab161663, type: 2}
-  m_sharedMaterial: {fileID: 5493371740290692762, guid: 6f1d1925596657442a33023dab161663, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb2af21dd28a09946b9146cf815f1249, type: 2}
+  m_sharedMaterial: {fileID: 9041595092669080448, guid: cb2af21dd28a09946b9146cf815f1249, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282271118
-  m_fontColor: {r: 0.5566038, g: 0.27009258, b: 0.2436454, a: 1}
+    rgba: 4282142819
+  m_fontColor: {r: 0.38679248, g: 0.31554043, b: 0.23499468, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15122,8 +15122,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.23
-  m_fontSizeBase: 31.23
+  m_fontSize: 30.26
+  m_fontSizeBase: 30.26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15132,7 +15132,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -3.9
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
