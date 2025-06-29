@@ -23,7 +23,7 @@ namespace tastelikecoke.PanMachine
             this.score.text = score.ToString();
 
             if (rank != Int32.MinValue)
-                this.rank.text = rank.ToString();
+                this.rank.text = $"#{rank.ToString()}";
             else
                 this.rank.text = "--";
 
