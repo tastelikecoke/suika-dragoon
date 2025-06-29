@@ -779,7 +779,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Dragoons
+  m_text: Next Dragoon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bde4c84c6eed8af41ab4609120102e95, type: 2}
   m_sharedMaterial: {fileID: 3896573779309668136, guid: bde4c84c6eed8af41ab4609120102e95, type: 2}
@@ -3943,6 +3943,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4492,6 +4496,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018053179704017973, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7547,6 +7555,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7658,7 +7670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3926490833667227978, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.294025
+      value: -4.4
       objectReference: {fileID: 0}
     - target: {fileID: 4833860168757239197, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_Name
@@ -7674,7 +7686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8082279598857880668, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 13.299999
+      value: -4.394018
       objectReference: {fileID: 0}
     - target: {fileID: 9018053179704017973, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_Pivot.x
@@ -7759,7 +7771,7 @@ PrefabInstance:
     - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 5493371740290692762, guid: 6f1d1925596657442a33023dab161663, type: 2}
+      objectReference: {fileID: 9041595092669080448, guid: cb2af21dd28a09946b9146cf815f1249, type: 2}
     - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -10125,6 +10137,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018053179704017973, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12865,6 +12881,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14701,6 +14721,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018053179704017973, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -16725,6 +16749,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9018053179704017973, guid: f9a8068bd7669334785b3129df461a90, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046241848307921793, guid: f9a8068bd7669334785b3129df461a90, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

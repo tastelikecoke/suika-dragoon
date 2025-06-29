@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 217.1, y: 13.3}
+  m_AnchoredPosition: {x: 252.4, y: -4.46999}
   m_SizeDelta: {x: 110.45, y: 26.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8690624638628358409
@@ -67,15 +67,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: now
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6f1d1925596657442a33023dab161663, type: 2}
-  m_sharedMaterial: {fileID: 6862948086684694721, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cb2af21dd28a09946b9146cf815f1249, type: 2}
+  m_sharedMaterial: {fileID: 9041595092669080448, guid: cb2af21dd28a09946b9146cf815f1249, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4285035192
-  m_fontColor: {r: 0.72156864, g: 0.44705886, b: 0.40784317, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &755577238977130022
@@ -704,7 +704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 217.7, y: 14.77}
+  m_AnchoredPosition: {x: 253, y: -3}
   m_SizeDelta: {x: 93.99, y: 29.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1419778718424899644
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9450981, g: 0.81568635, b: 0.7058824, a: 1}
+  m_Color: {r: 0.2784314, g: 0.6117647, b: 0.56078434, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
