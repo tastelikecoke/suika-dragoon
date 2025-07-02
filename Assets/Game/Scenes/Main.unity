@@ -2651,8 +2651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitList:
-  - {fileID: 78220219139644148, guid: c51df7b088a3c13418fd123cc2416f2f, type: 3}
-  - {fileID: 78220219139644148, guid: bb2e33ae7054eb44f8bfa4e052fe0ab8, type: 3}
+  - {fileID: 78220219139644148, guid: 6b0aeb8d9ef689244baa2dad97b9c11e, type: 3}
+  - {fileID: 78220219139644148, guid: d7e7cce3ee3701246bafae03f48dafd4, type: 3}
   - {fileID: 78220219139644148, guid: 6be71c828a6dc2149b828cb460209df7, type: 3}
   - {fileID: 78220219139644148, guid: a3e95b542d3035d4d8ab4a8e4abeae5f, type: 3}
   - {fileID: 78220219139644148, guid: 8015aba8d719a17489c66065aa6d9e32, type: 3}
@@ -2667,7 +2667,7 @@ MonoBehaviour:
   retryMenu: {fileID: 1011120906}
   audioSource: {fileID: 1657213416}
   buildNumberText: {fileID: 886790313}
-  ratChance: 0
+  ratChance: 0.05
   ratFruit: {fileID: 78220219139644148, guid: 815e87943941f774e87fefd679b3fdaa, type: 3}
   ratAudioSource: {fileID: 1067211051}
   pomuChance: 0
