@@ -2123,8 +2123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localScores: 
-  unmuteSnapshot: {fileID: 0}
-  muteSnapshot: {fileID: 0}
+  unmuteSnapshot: {fileID: 24500006, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
+  muteSnapshot: {fileID: 2297654183569956926, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   isMute: 0
 --- !u!4 &454267391
 Transform:
@@ -3731,7 +3731,7 @@ AudioSource:
   m_GameObject: {fileID: 963889440}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1452651638823760145, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: f2391a3cb01e42c4d945fcba46189f5f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
