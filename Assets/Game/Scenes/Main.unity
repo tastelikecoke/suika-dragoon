@@ -14684,30 +14684,30 @@ PrefabInstance:
     - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1889425694}
+      objectReference: {fileID: 1011120906}
     - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1011120906}
+      objectReference: {fileID: 1889425694}
     - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hide
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: PressRetry
       objectReference: {fileID: 0}
     - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Hide
+      objectReference: {fileID: 0}
+    - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseMenu, Assembly-CSharp
+      value: RetryMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: RetryMenu, Assembly-CSharp
+      value: tastelikecoke.PanMachine.PauseMenu, tastelikecoke.PanMachine
       objectReference: {fileID: 0}
     - target: {fileID: 5815028001391285619, guid: b1e8e66485cfc494ba843f3eeb28cc10, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
