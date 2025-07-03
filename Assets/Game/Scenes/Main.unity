@@ -2649,7 +2649,7 @@ MonoBehaviour:
   pomuChance: 0
   pomuFruit: {fileID: 78220219139644148, guid: 6affee0707a88254d811b80bc3ea750e, type: 3}
   pomuAudioSource: {fileID: 441295221}
-  explosionChance: 0
+  explosionChance: 5
   explosionFruit: {fileID: 78220219139644148, guid: 78f652652024dd84b9bc58cf47a272e2, type: 3}
   explosionSource: {fileID: 489368330}
   explosion: {fileID: 2053978647959197256, guid: 91b114b20c550ca4683b9c8eb6f89875, type: 3}
