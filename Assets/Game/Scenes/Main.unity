@@ -446,20 +446,8 @@ PrefabInstance:
       value: 88.45999
       objectReference: {fileID: 0}
     - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.7764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.7372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.8156863
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4291214544
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1317,20 +1305,8 @@ PrefabInstance:
       value: 88.45999
       objectReference: {fileID: 0}
     - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.7764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.7372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.8156863
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4291214544
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4247,7 +4223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseName: dragoon-drop-default-rtdb
-  rootNode: pan-staging/scores
+  rootNode: doki-staging/scores
   ScoreEntries: []
 --- !u!1 &579146048
 GameObject:
@@ -5335,20 +5311,8 @@ PrefabInstance:
       value: 88.45999
       objectReference: {fileID: 0}
     - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.7764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.7372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.8156863
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4291214544
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7360,7 +7324,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011120901}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1167939023}
@@ -7512,20 +7476,8 @@ PrefabInstance:
       value: 88.45999
       objectReference: {fileID: 0}
     - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.7764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.7372549
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.8156863
-      objectReference: {fileID: 0}
-    - target: {fileID: 8077205263562721668, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4291214544
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
