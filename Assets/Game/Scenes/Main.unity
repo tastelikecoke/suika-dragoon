@@ -2643,7 +2643,7 @@ MonoBehaviour:
   retryMenu: {fileID: 1011120906}
   audioSource: {fileID: 1657213416}
   buildNumberText: {fileID: 886790313}
-  ratChance: 0.05
+  ratChance: 5
   ratFruit: {fileID: 78220219139644148, guid: 815e87943941f774e87fefd679b3fdaa, type: 3}
   ratAudioSource: {fileID: 1067211051}
   pomuChance: 0
