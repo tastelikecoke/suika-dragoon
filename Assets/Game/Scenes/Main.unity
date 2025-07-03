@@ -2646,8 +2646,8 @@ MonoBehaviour:
   ratChance: 5
   ratFruit: {fileID: 78220219139644148, guid: 815e87943941f774e87fefd679b3fdaa, type: 3}
   ratAudioSource: {fileID: 1067211051}
-  pomuChance: 0
-  pomuFruit: {fileID: 78220219139644148, guid: 6affee0707a88254d811b80bc3ea750e, type: 3}
+  pomuChance: 5
+  pomuFruit: {fileID: 78220219139644148, guid: 284656bc933bc7e4cbde82fb9b7afc8d, type: 3}
   pomuAudioSource: {fileID: 441295221}
   explosionChance: 5
   explosionFruit: {fileID: 78220219139644148, guid: 78f652652024dd84b9bc58cf47a272e2, type: 3}
@@ -3665,7 +3665,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2b300e86e5122294bb369a975e311a78, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3fbdeb7b398a6ae45abdd614a09eeb4b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
   m_Pitch: 1
