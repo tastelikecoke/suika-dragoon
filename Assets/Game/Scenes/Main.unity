@@ -2653,15 +2653,15 @@ MonoBehaviour:
   fruitList:
   - {fileID: 78220219139644148, guid: 6b0aeb8d9ef689244baa2dad97b9c11e, type: 3}
   - {fileID: 78220219139644148, guid: d7e7cce3ee3701246bafae03f48dafd4, type: 3}
-  - {fileID: 78220219139644148, guid: 6be71c828a6dc2149b828cb460209df7, type: 3}
-  - {fileID: 78220219139644148, guid: a3e95b542d3035d4d8ab4a8e4abeae5f, type: 3}
+  - {fileID: 78220219139644148, guid: 1a3108e75d8d1534ba365bd7d92a36f8, type: 3}
+  - {fileID: 78220219139644148, guid: 9c414869046633540b793b18c03206c2, type: 3}
   - {fileID: 78220219139644148, guid: 716d84ed5e69cab4f848ef58ed0959bf, type: 3}
-  - {fileID: 78220219139644148, guid: a083318a0a3537f48915107699b22717, type: 3}
-  - {fileID: 78220219139644148, guid: f66912c19ceeaf9488f425638fca185d, type: 3}
-  - {fileID: 78220219139644148, guid: a3c0b2bc0701a08468a818f99a636dc5, type: 3}
-  - {fileID: 78220219139644148, guid: 72216796aa5d4bf48bf62b6b6e49fefc, type: 3}
-  - {fileID: 78220219139644148, guid: eb97539ed3b32f240b691f1a8f0df79a, type: 3}
-  - {fileID: 78220219139644148, guid: 80359629277665f4bb9826ab1e7fec79, type: 3}
+  - {fileID: 78220219139644148, guid: a5dbb44eaabff6a47ad97db54173273d, type: 3}
+  - {fileID: 78220219139644148, guid: ae08ecb710959fa46be54c5e939603b2, type: 3}
+  - {fileID: 78220219139644148, guid: 43de1d0814ed41d45bdd323c7f66289c, type: 3}
+  - {fileID: 78220219139644148, guid: d70289b430a3de54fab608f127b96e11, type: 3}
+  - {fileID: 78220219139644148, guid: 7f46f9eb6748833499a21c4d5985c668, type: 3}
+  - {fileID: 78220219139644148, guid: f320da346f2c4834e903e92d35954c1f, type: 3}
   fruitRoot: {fileID: 323314689}
   fruitPool: {fileID: 323314691}
   retryMenu: {fileID: 1011120906}
